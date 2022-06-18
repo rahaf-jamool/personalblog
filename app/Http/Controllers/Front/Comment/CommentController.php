@@ -16,8 +16,19 @@ class CommentController extends Controller
             'comment' => request('comment'),
             'post_id' => $post->id
         ]);
-        $notification = Comment::find($comment->id);
-            event(new CommentEvent($notification));
+        // $notification = Comment::find($comment->id);
+            // event(new CommentEvent($notification));
+        // $users = Auth::user()->id->get();
+        // Notification::send($users, new NewUserComment($comment));
+        return back();
+    }
+    public function update(Post $post){
+        $comment = Comment::update([
+            'comment' => request('comment'),
+            'post_id' => $post->id
+        ]);
+        // $notification = Comment::find($comment->id);
+            // event(new CommentEvent($notification));
         // $users = Auth::user()->id->get();
         // Notification::send($users, new NewUserComment($comment));
         return back();

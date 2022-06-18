@@ -141,7 +141,7 @@
                 <p>Your email address will not be published. Required fields are marked * </p>
                 @guest
                   <p>
-
+                    
                   </p>
                 @else
                     <form action="{{route('comment.store',$post->id)}}" method="POST">
@@ -151,7 +151,7 @@
                           <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
                         </div>
                       </div>
-                      <button type="submit" class="btn btn-primary">Post Comment</button>
+                      <button type="submit" class="btn btn-primary">Add Comment</button>
                     </form>
                 @endguest
               </div>

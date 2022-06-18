@@ -29,6 +29,7 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
+                        <th>Post</th>
                         <th>Option</th>
                     </tr>
                 </thead>
@@ -41,6 +42,7 @@
                     <tr class="col-sm-12">
                         <td class="col-sm-1">{{ ++$no }}</td>
                         <td class="col-sm-2">{{ $tag->name }}</td>
+                        <td class="col-sm-2">{{ $tag->post->title }}</td>
                         <td class="col-sm-3">
                             <a href="{{route('tags.edit', [$tag->id])}}" class="btn btn-info btn-sm">Edit</a>
                             <form method="POST" action="{{route('tags.destroy', [$tag->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">

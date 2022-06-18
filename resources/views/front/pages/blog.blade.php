@@ -28,9 +28,9 @@
                 </h2>
                 <div class="entry-meta">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$post->created_at->diffForHumans()}}</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$post->date}}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{$post->comments->count()}}</a></li>
                   </ul>
                 </div>
                 <div class="entry-content">

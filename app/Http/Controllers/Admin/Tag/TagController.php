@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Tag;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post\Post;
 use App\Models\Tag\Tag;
 use App\Traits\MessageTrait;
 use Illuminate\Http\Request;
@@ -12,9 +13,11 @@ class TagController extends Controller
 {
     use MessageTrait;
     private $tag;
-    public function __construct(Tag $tag)
+    private $post;
+    public function __construct(Tag $tag, Post $post)
     {
         $this->tag = $tag;
+        $this->post = $post;
     }
     public function index()
     {
@@ -23,7 +26,8 @@ class TagController extends Controller
     }
     public function create()
     {
-        return view('admin.tags.create');
+        $posts = $this->post->get();
+        return view('admin.tags.create',compact('posts'));
     }
 public function store(Request $request)
     {
@@ -32,6 +36,7 @@ public function store(Request $request)
             $slug = $request->en_name;
             $data = [
                 'slug' => $slug,
+                'post_id' => $request['post'],
                 'name' => [
                     'en' => $request->input('en_name'),
                     'ar' => $request->input('ar_name')
@@ -51,7 +56,8 @@ public function store(Request $request)
     public function edit($id)
     {
         $tag = $this->tag->findOrFail($id);
-        return view('admin.tags.edit',compact('tag'));
+        $posts = $this->post->get();
+        return view('admin.tags.edit',compact('tag','posts'));
     }
     public function update(Request $request, $id)
     {

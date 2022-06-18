@@ -5,10 +5,12 @@ namespace App\Models\Tag;
 use App\Models\Post\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Tag extends Model
 {
-    use HasFactory;
+    use HasFactory,HasTranslations;
+    public $translatable = ['name'];
     protected $primaryKey = 'id';
     protected $table = 'tags';
     protected $hidden = [
@@ -16,10 +18,11 @@ class Tag extends Model
     ];
     protected $fillable = [
         'name',
+        'post_id',
         'slug'
     ];
-    public function Posts()
+    public function post()
     {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsTo(Post::class);
     }
 }

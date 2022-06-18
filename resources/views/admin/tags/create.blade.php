@@ -59,6 +59,21 @@
                 </div>
             </div>
             <div class="form-group ml-4">
+                <label for="post" class="col-sm-2 col-form-label">Post</label>
+                <div class="col-sm-7">
+                    <select name='post' class="form-control {{$errors->first('post') ? "is-invalid" : "" }} "
+                            id="post">
+                        <option disabled selected>Choose one!</option>
+                        @foreach ($posts as $post)
+                            <option value="{{ $post->id }}">{{ $post->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('post')
+                    <small class="form-text text-danger"> {{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group ml-4">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">Create</button>
                 </div>

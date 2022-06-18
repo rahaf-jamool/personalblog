@@ -46,7 +46,7 @@ class Post extends Model
     }
     public function tags()
     {
-        return $this->belongsToMany(PostTag::class);
+        return $this->hasMany(PostTag::class);
     }
     public function likes(){
         return $this->hasMany(Like::class);

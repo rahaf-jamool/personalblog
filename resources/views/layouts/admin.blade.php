@@ -60,36 +60,30 @@
       <li class="nav-item">
           <a class="nav-link" href="{{route('admin.user')}}">
               <i class="fas fa-fw fa-users"></i>
-              <span>User</span></a>
+              <span>User</span>
+          </a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{{route('categories.index')}}">
               <i class="fas fa-fw fa-table"></i>
-              <span>Category</span></a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{{route('posts.index')}}">
-              <i class="fas fa-fw fa-table"></i>
-              <span>Post</span></a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="{{route('tags.index')}}">
-              <i class="fas fa-fw fa-table"></i>
-              <span>Tags</span></a>
+              <span>Category</span>
+          </a>
       </li>
       <!-- Nav Item - Pages Collapse Menu -->
-      {{-- <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-table"></i>
-          <span>Category</span>
+          <span>Posts</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{ route('portfolios.index') }}">{{ __('home.portfolio') }}</a>
-            <a class="collapse-item" href="{{ route('portfoliocategories.index') }}">{{ __('home.portfoliocate') }}</a>
+            <a class="collapse-item" href="{{route('posts.index')}}">List posts</a>
+            <a class="collapse-item" href="">Trach</a>
+            <a class="collapse-item" href="{{route('tags.index')}}">Tags</a>
+            <a class="collapse-item" href="">Comments post</a>
           </div>
         </div>
-      </li> --}}
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
