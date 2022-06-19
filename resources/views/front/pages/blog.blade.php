@@ -90,14 +90,14 @@
                  @endforeach
               </div>
 
-              <h3 class="sidebar-title">{{__('front.tags')}}</h3>
+              {{-- <h3 class="sidebar-title">{{__('front.tags')}}</h3>
               <div class="sidebar-item tags">
                 <ul>
                   @foreach ($tags as $tag)
                     <li><a href="#">{{$tag->name}}</a></li>
                   @endforeach
                 </ul>
-              </div>
+              </div> --}}
 
             </div>
           </div>
