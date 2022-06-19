@@ -1046,14 +1046,14 @@ section {
 .blog .sidebar .tags {
   margin-bottom: -10px;
 }
-.blog .sidebar .tags ul {
+.tags ul {
   list-style: none;
   padding: 0;
 }
 .blog .sidebar .tags ul li {
   display: inline-block;
 }
-.blog .sidebar .tags ul a {
+.tags ul a {
   color: #7e886b;
   font-size: 14px;
   padding: 6px 14px;
@@ -1062,7 +1062,7 @@ section {
   display: inline-block;
   transition: 0.3s;
 }
-.blog .sidebar .tags ul a:hover {
+ul a:hover {
   color: #fff;
   border: 1px solid #41b1a4;
   background: #34b7a7;

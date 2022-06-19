@@ -35,6 +35,11 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             Route::get('posts/galleries/destroy/{id}','PostController@showGallery')->name('posts.gallery');
             Route::delete('posts/gallery/destroy/{photo}','PostController@deleteGallery')->name('posts.gallery.destroy');
         });
+        // Manage Posts
+        Route::group([ 'namespace' => 'Admin\Comment'], function () {
+            Route::get('comments','CommentController@index')->name('comments.index');
+            Route::delete('comments/destroy/{id}','CommentController@destroy')->name('comments.destroy');
+        });
         // Manage Tags
         Route::group([ 'namespace' => 'Admin\Tag'], function () {
             Route::resource('tags','TagController');

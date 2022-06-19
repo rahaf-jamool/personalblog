@@ -1,23 +1,23 @@
 <div class="container-fluid d-flex justify-content-between align-items-center">
-    <h1 class="logo me-auto me-lg-0"><a href="{{route('home.index')}}">Kelly</a></h1>
+    <h1 class="logo me-auto me-lg-0"><a href="{{route('home.index')}}">{{__('front.personalBlog')}}</a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-            <li><a class="active" href="{{route('home.index')}}">Home</a></li>
-            <li><a href="{{route('home.about')}}">About</a></li>
-            <li><a href="{{route('home.blog')}}">Blog</a></li>
-            <li><a href="{{route('home.service')}}">Services</a></li>
-            <li><a href="{{route('home.contact')}}">Contact</a></li>
+            <li><a class="active" href="{{route('home.index')}}">{{__('front.home')}}</a></li>
+            <li><a href="{{route('home.about')}}">{{__('front.about')}}</a></li>
+            <li><a href="{{route('home.blog')}}">{{__('front.blogs')}}</a></li>
+            <li><a href="{{route('home.service')}}">{{__('front.services')}}</a></li>
+            <li><a href="{{route('home.contact')}}">{{__('front.contact')}}</a></li>
             {{-- dropdown language --}}
             <li class="dropdown m-4">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button">Language</a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button">{{__('front.languages')}}</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="text-decoration-none" href="{{route('frontend_change_locale','en')}}">English</a>
+                    <a class="text-decoration-none" href="{{route('frontend_change_locale','en')}}">{{__('front.english')}}</a>
                   </li>
                   <li>
-                    <a class="text-decoration-none" href="{{route('frontend_change_locale','ar')}}">Arabic</a>
+                    <a class="text-decoration-none" href="{{route('frontend_change_locale','ar')}}">{{__('front.arabic')}}</a>
                   </li>
                 </ul>
             </li>

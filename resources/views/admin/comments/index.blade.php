@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-2 text-gray-800">{{__('admin.categories')}}</h1>
+<h1 class="h3 mb-2 text-gray-800">Comments</h1>
 
 @if (session('success'))
 
@@ -19,18 +19,15 @@
 @endif
 
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <a href="{{route('categories.create')}}" class="btn btn-success">{{__('admin.createCategory')}}</a>
-    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>{{__('admin.no')}}</th>
-                        <th>{{__('admin.name')}}</th>
-                        <th>{{__('admin.desc')}}</th>
-                        <th>{{__('admin.action')}}</th>
+                        <th>No</th>
+                        <th>Comment</th>
+                        <th>Post</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,17 +35,16 @@
                 $no=0;
                 @endphp
 
-                @foreach ($categories as $category)
+                @foreach ($comments as $comment)
                     <tr class="col-sm-12">
                         <td class="col-sm-1">{{ ++$no }}</td>
-                        <td class="col-sm-2">{{ $category->name }}</td>
-                        <td class="col-sm-2">{{ $category->short_desc }}</td>
+                        <td class="col-sm-2">{{ $comment->comment }}</td>
+                        <td class="col-sm-2">{{ $comment->post->title }}</td>
                         <td class="col-sm-3">
-                            <a href="{{route('categories.edit', [$category->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
-                            <form method="POST" action="{{route('categories.destroy', [$category->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
+                            <form method="POST" action="{{route('comments.destroy', [$comment->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" value="{{__('admin.delete')}}" class="btn btn-danger btn-sm">
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>

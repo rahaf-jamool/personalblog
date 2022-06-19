@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Admin - Dasboard</title>
+  <title>{{__('admin.adminDasboard')}}</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -46,7 +46,7 @@
     <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
-        <div class="sidebar-brand-text mx-3">Dashboard<sup>1.0</sup></div>
+        <div class="sidebar-brand-text mx-3">{{__('admin.personalBlog')}}<sup>1.0</sup></div>
       </a>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -54,33 +54,33 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{route('admin.dashboard')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dasboard</span></a>
+          <span>{{__('admin.dashboard')}}</span></a>
       </li>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
           <a class="nav-link" href="{{route('admin.user')}}">
               <i class="fas fa-fw fa-users"></i>
-              <span>User</span>
+              <span>{{__('admin.users')}}</span>
           </a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="{{route('categories.index')}}">
               <i class="fas fa-fw fa-table"></i>
-              <span>Category</span>
+              <span>{{__('admin.categories')}}</span>
           </a>
       </li>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-table"></i>
-          <span>Posts</span>
+          <span>{{__('admin.blogs')}}</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{route('posts.index')}}">List posts</a>
-            <a class="collapse-item" href="">Trach</a>
-            <a class="collapse-item" href="{{route('tags.index')}}">Tags</a>
-            <a class="collapse-item" href="">Comments post</a>
+            <a class="collapse-item" href="{{route('posts.index')}}">{{__('admin.blogs')}}</a>
+            {{-- <a class="collapse-item" href="">Trach</a> --}}
+            <a class="collapse-item" href="{{route('tags.index')}}">{{__('admin.tags')}}</a>
+            <a class="collapse-item" href="{{route('comments.index')}}">{{__('admin.commentsPost')}}</a>
           </div>
         </div>
       </li>
@@ -111,13 +111,13 @@
           <ul class="navbar-nav ml-auto">
               {{-- dropdown language --}}
               <li class="dropdown m-4">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button">Language</a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button">{{__('admin.languages')}}</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="text-decoration-none" href="{{route('frontend_change_locale','en')}}">English</a>
+                    <a class="text-decoration-none" href="{{route('frontend_change_locale','en')}}">{{__('admin.english')}}</a>
                   </li>
                   <li>
-                    <a class="text-decoration-none" href="{{route('frontend_change_locale','ar')}}">Arabic</a>
+                    <a class="text-decoration-none" href="{{route('frontend_change_locale','ar')}}">{{__('admin.arabic')}}</a>
                   </li>
                 </ul>
               </li>
@@ -134,7 +134,7 @@
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
+                  {{__('admin.logout')}}
                 </a>
               </div>
             </li>
@@ -185,12 +185,12 @@
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">select Logout</div>
+        <div class="modal-body">{{__('admin.selectLogout')}}</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{__('admin.cancel')}}</button>
           <a class="btn btn-primary" href="" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-              Logout
+              {{__('admin.logout')}}
           </a>
           <form id="logout-form" action="" method="POST" style="display: none;">
             @csrf

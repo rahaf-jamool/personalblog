@@ -29,8 +29,9 @@ Route::get('/', function () {
     
 Route::get('/blog','Front\FrontController@blog')->name('home.blog');
 Route::get('/single-blog/{id}','Front\FrontController@blogShow')->name('home.single-blog');
+Route::get('/blog/search','Front\FrontController@search')->name('blog.search');
 
-Route::post('blog/comment/{post}','Front\Comment\CommentController@store')->name('comment.store');
+Route::post('blog/comment/{post}','Front\Comment\CommentController@store')->name('comments.store');
 Route::post('blog/like','Front\FrontControlle@like')->name('blog.like');
 
     Route::get('/contact',function(){

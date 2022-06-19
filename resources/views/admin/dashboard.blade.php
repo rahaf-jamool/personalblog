@@ -3,7 +3,7 @@
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+  <h1 class="h3 mb-0 text-gray-800">{{__('admin.dashboard')}}</h1>
 </div>
 <!-- Content Row -->
 <div class="row">
@@ -13,7 +13,7 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Users</div>
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{{__('admin.users')}}</div>
             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $admin }}</div>
           </div>
           <div class="col-auto">

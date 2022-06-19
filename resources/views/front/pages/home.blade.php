@@ -6,7 +6,7 @@
         <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
         <h1>Kelly Adams</h1>
         <h2>I'm a professional illustrator from San Francisco</h2>
-        <a href="{{route('home.about')}}" class="btn-about">About Me</a>
+        <a href="{{route('home.about')}}" class="btn-about">{{__('front.about')}}</a>
         </div>
     </section><!-- End Hero -->
 
@@ -15,7 +15,7 @@
       <div class="container">
 
         <div class="section-title pt-5" data-aos="fade-up">
-          <h2>Our Services</h2>
+          <h2>{{__('front.services')}}</h2>
         </div>
 
         <div class="row">

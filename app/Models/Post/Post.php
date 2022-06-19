@@ -5,6 +5,7 @@ namespace App\Models\Post;
 use App\Models\Category\Category;
 use App\Models\Comment\Comment;
 use App\Models\Like\Like;
+use App\Models\Tag\Tag;
 use App\Models\Taq\Taq;
 use App\Models\User;
 use App\Traits\HasPhoto;
@@ -46,7 +47,7 @@ class Post extends Model
     }
     public function tags()
     {
-        return $this->hasMany(PostTag::class);
+        return $this->hasMany(Tag::class);
     }
     public function likes(){
         return $this->hasMany(Like::class);
