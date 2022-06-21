@@ -79,15 +79,16 @@
     <script src="{{asset('vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
     <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('vendor/waypoints/noframework.waypoints.js')}}"></script>
-    <script src="{{asset('vendor/php-email-form/validate.js')}}"></script>
 
     <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
 
     <!-- Template Main JS File -->
     <script src="{{asset('js/main.js')}}"></script>
-    @stack('scripts')
     <script>
         var url = {{route('blog.like')}}
     </script>
+
+    @stack('scripts')
+    
     </body>
 </html>

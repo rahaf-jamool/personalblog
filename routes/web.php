@@ -31,10 +31,9 @@ Route::get('/blog','Front\FrontController@blog')->name('home.blog');
 Route::get('/single-blog/{id}','Front\FrontController@blogShow')->name('home.single-blog');
 Route::get('/blog/search','Front\FrontController@search')->name('blog.search');
 
-Route::post('blog/comment/{post}','Front\Comment\CommentController@store')->name('comments.store');
-Route::post('blog/like','Front\FrontControlle@like')->name('blog.like');
+Route::get('/contact','Front\FrontController@contact')->name('home.contact');
+Route::post('/contact/send-message','Front\FrontController@sendMessage')->name('contact.sendMessage');
 
-    Route::get('/contact',function(){
-        return view('front.pages.contact');
-    })->name('home.contact');
-// });
+Route::post('blog/comment/{post}','Comment\CommentController@store')->name('comments.store');
+Route::post('blog/comment-replay/{comment}','Comment\CommentReplayController@store')->name('commentReplay.store');
+Route::post('blog/like','Front\FrontControlle@like')->name('blog.like');

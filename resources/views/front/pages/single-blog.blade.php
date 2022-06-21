@@ -98,13 +98,42 @@
               <div id="comment-2" class="comment">
                 <div class="d-flex">
                   <div>
-                    <time datetime="2020-01-01">{{$comment->created_at->diffForHumans()}}</time>
                     <p>
                       {{$comment->comment}}
                     </p>
+                    <time datetime="2020-01-01">{{$comment->created_at->diffForHumans()}}</time>
+                  </div>
+                  <div class="ml-5">
+                    <button class="btn-replay text-uppercase" id="reply-btn"
+                      onclick="showReplayForm('{{$comment->id}}')">
+                      <a class="reply"><i class="bi bi-reply-fill"></i>
+                         Reply
+                      </a>
+                    </button>
                   </div>
                 </div>
-                <div id="comment-reply-1" class="comment comment-reply">
+                <div class="comment-list left-padding"></div>
+                <div class="comment-list left-padding" id="reply-form-{{$comment->id}}" style="display: none">
+                  <div class="single-comment justify-content-betwen d-flex">
+                    <div class="user justify-content-betwen d-flex">
+                      <div class="row flex-row d-flex">
+                        <form action="{{route('commentReplay.store',$comment->id)}}" method="POST">
+                          @csrf
+                          <div class="col-lg-12">
+                            <textarea name="message" id="reply-form-{{$comment->id}}-text" 
+                              cols="60" rows="2" class="form-control mb-10" placeholder="Message"
+                              onfocus="this.placeholder = ''"
+                              onblur="this.placeholder = 'Message'"
+                              required>
+                            </textarea>
+                          </div>
+                          <button type="submit" class="btn-reply text-uppercase ml-3">Reply</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{-- <div id="comment-reply-1" class="comment comment-reply">
                   <div class="d-flex">
                     <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
                     <div>
@@ -119,7 +148,7 @@
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> --}}
               </div>
               @endforeach
               <div class="reply-form">
@@ -150,10 +179,22 @@
 
 @push('scripts')
   <script>
-    function showReplay(commentId){
-      var x = document.getElementById(`replay-form-${commentId}`);
-      var input = document.getElementById(`replay-form-${commentId}`);
+    function showReplayForm(commentId){
+      console.log('reply');
+      // var x = document.getElementById(`replay-form-${commentId}`);
+      // var input = document.getElementById(`replay-form-${commentId}`);
 
+      // if(x.style.display === "none"){
+      //   x.style.display = "block";
+      //   input.innerText = '@';
+      // }else{
+      //   x.style.display = "none";
+      // }
     }
+    $(function (commentId){
+      console.log('reply');
+    });
+
   <script>
 @endpush
+
