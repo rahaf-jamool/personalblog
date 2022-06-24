@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.master')
 
 @section('styles')
 
@@ -22,50 +22,60 @@
         </div>
         <div class="container">
         <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                @foreach (config('app.languages') as $key => $lang)
+                    <li class="nav-item">
+                        <a class="nav-link @if ($loop->index == 0) active @endif" 
+                            id="home-tab" role="tab" data-toggle="tab" aria-controls="home" 
+                            aria-selected="true" href="#{{$key}}">{{$lang}}</a>
+                    </li>
+                @endforeach
+                {{-- <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#english">{{__('admin.english')}}</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab" href="#arabic">{{__('admin.arabic')}}</a>
-                </li>
+                </li> --}}
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content">
-                <div id="english" class="container tab-pane active"><br>
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="en_name">{{__('admin.name')}}</label>
-                        <input class="form-control {{ $errors->has('en_name') ? 'is-invalid' : '' }}" type="text"
-                               name="en_name" id="en_name" value="{{ old('en_name', '') }}">
-                        @if($errors->has('en_name'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('en_name') }}
-                            </div>
-                        @endif
+            <div class="tab-content" id="myTabContent">
+                @foreach (config('app.languages') as $key => $lang)
+                    <div id="{{$key}}" class="container tab-pane fade @if ($loop->index == 0) show active in                    
+                    @endif"><br>
+                        <div class="form-group mt-2 col-sm-7">
+                            <label class="required" for="name">{{__('admin.name')}}</label>
+                            <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
+                                name="{{$key}}['name']" id="name" value="{{ old('name', '') }}">
+                            @if($errors->has('name'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('name') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group col-sm-7">
+                            <label class="required" for="short_desc">{{__('admin.shortDesc')}}</label>
+                            <input class="form-control {{ $errors->has('short_desc') ? 'is-invalid' : '' }}" type="text"
+                                name="{{$key}}['short_desc']" id="short_desc" value="{{ old('short_desc', '') }}">
+                            @if($errors->has('short_desc'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('short_desc') }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group col-sm-7">
+                            <label class="required" for="long_desc">{{__('admin.longDesc')}}</label>
+                            <input class="form-control {{ $errors->has('long_desc') ? 'is-invalid' : '' }}" type="text"
+                                name="{{$key}}['long_desc']" id="long_desc" value="{{ old('long_desc', '') }}">
+                            @if($errors->has('long_desc'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('long_desc') }}
+                                </div>
+                            @endif
+                        </div>
                     </div>
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="en_client">{{__('admin.shortDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_short_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_short_desc" id="en_short_desc" value="{{ old('en_short_desc', '') }}">
-                        @if($errors->has('en_short_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('en_short_desc') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="en_desc">{{__('admin.longDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_long_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_long_desc" id="en_long_desc" value="{{ old('en_long_desc', '') }}">
-                        @if($errors->has('en_long_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('en_long_desc') }}
-                            </div>
-                        @endif
-                    </div>
-                </div>
-                <div id="arabic" class="container tab-pane fade"><br>
+                @endforeach
+                {{-- <div id="ar" class="container tab-pane fade"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="title">{{__('admin.name')}}</label>
                         <input class="form-control {{ $errors->has('ar_name') ? 'is-invalid' : '' }}" type="text"
@@ -96,7 +106,7 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="form-group ml-4">
                 <div class="col-sm-3">

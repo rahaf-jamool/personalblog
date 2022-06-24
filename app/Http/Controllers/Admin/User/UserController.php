@@ -19,7 +19,7 @@ class UserController extends Controller
     }
     public function dashboard(){
         $admin = $this->user::count();
-        return view('admin.dashboard', compact('admin'));
+        return view('dashboard', compact('admin'));
     }    
     public function index()
     {

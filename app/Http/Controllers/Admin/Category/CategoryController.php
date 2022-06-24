@@ -26,6 +26,7 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+        return $request->all();
         try {
             DB::beginTransaction();
             $slug = $request->en_name;

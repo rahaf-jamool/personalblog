@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Comment;
 use App\Http\Controllers\Controller;
 use App\Models\Comment\Comment;
 use App\Models\Post\Post;
+use App\Models\User;
+use App\Notifications\AddComment;
 use App\Traits\MessageTrait;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class CommentController extends Controller
 {
@@ -20,14 +24,13 @@ class CommentController extends Controller
         return view('admin.comments.index',compact('comments'));
     }
     public function store(Post $post){
-        $comment = $this->comment->create([
+        $this->comment->create([
             'comment' => request('comment'),
             'post_id' => $post->id
         ]);
-        // $notification = Comment::find($comment->id);
-            // event(new CommentEvent($notification));
-        // $users = Auth::user()->id->get();
-        // Notification::send($users, new NewUserComment($comment));
+        $user = User::find(Auth::user()->id);
+        $comment = $this->comment->latest()->first();
+        Notification::send($user, new AddComment($comment));
         return back();
     }
     public function update(Post $post){
@@ -41,9 +44,12 @@ class CommentController extends Controller
         // Notification::send($users, new NewUserComment($comment));
         return back();
     }
-    public function MarkNotification(){
-        foreach(auth()->user()->unreadNotifications as $notification){
-            $notification->markAsRead();
+    public function markAsReadAll()
+    {
+        $userUnreadNotification = auth()->user()->unreadNotifications;
+        if($userUnreadNotification){
+            $userUnreadNotification->markAsRead();
+            return back();
         }
     }
     public function destroy($id){

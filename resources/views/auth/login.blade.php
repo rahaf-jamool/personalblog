@@ -18,84 +18,52 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('admin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/style.css') }}" rel="stylesheet">
 
 </head>
 
 <body class="bg-gradient-primary">
-
-<div class="container">
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center">
-
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-                        <div class="col-lg-6">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                                </div>
-                                <form method="POST" action="{{ route('login') }}" class="user">
-                                    @csrf
-                                    <div class="form-group">
-                                        <input id="login" type="text"
-                                               class="form-control form-control-user {{ $errors->has('username') || $errors->has('email') ? 'is-invalid' : '' }} "
-                                               name="login" value="{{ old('username') ?: old('email') }}" required
-                                               autofocus placeholder="Enter User Name Or Email...">
-
-                                        @if($errors->has('username') || $errors->has('email'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <input id="password" type="password"
-                                               class="form-control form-control-user @error('password') is-invalid @enderror"
-                                               name="password" required autocomplete="current-password"
-                                               placeholder="Password">
-
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-checkbox small">
-                                            <input class="custom-control-input" type="checkbox" name="remember"
-                                                   id="customCheck" {{ old('remember') ? 'checked' : '' }}>
-                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
-                                        </div>
-                                    </div>
-                                    {{-- <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                      Login
-                                    </a> --}}
-
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">
-                                        {{ __('Login') }}
-                                    </button>
-
-                                    <hr>
-                                </form>
-
-                            </div>
-                        </div>
+    <div class="login-wrap">
+        <div class="login-html">
+            <h1>Login</h1>
+            <div class="login-form">
+                <form class="sign-in-htm" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <div class="group">
+                        <label for="login" class="label">Username or Email</label>
+                        <input type="text" id="login"
+                            class="input {{ $errors->has('username') || $errors->has('email') ? 'is-invalid' : '' }} "
+                            name="login" value="{{ old('username') ?: old('email') }}" required
+                            autofocus>
+                        @if($errors->has('username') || $errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('username') ?: $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     </div>
-                </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="password" type="password"
+                            class="input @error('password') is-invalid @enderror"
+                            name="password" required autocomplete="current-password"
+                            placeholder="Password">
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="{{ __('Login') }}">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+                        <a href="#forgot">Forgot Password?</a>
+                    </div>
+                </form>
             </div>
-
         </div>
-
     </div>
-
-</div>
 
 <!-- Bootstrap core JavaScript-->
 <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
@@ -103,9 +71,6 @@
 
 <!-- Core plugin JavaScript-->
 <script src="{{ asset('admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 
 </body>
 

@@ -1,81 +1,63 @@
-// Override Bootstrap default variables here
-// Do not edit any of the files in /vendor/bootstrap/scss/!
+// NOTE: This file contains all the variables.
 
-// Color Variables
-// Bootstrap Color Overrides
+$body 	  		: #fafafa;
+$theme-color	: #84ba3f;
+$white			: #ffffff;
+$black			: #000000;
+$lightest-gray  : #f6f7f8;
+$light-gray		: #626262;
+$dark-gray		: #323232;
+$sidebar-dark	: #282a39;
+$border-color   : #eeeeee;
 
-$white: #fff !default;
-$gray-100: #f8f9fc !default;
-$gray-200: #eaecf4 !default;
-$gray-300: #dddfeb !default;
-$gray-400: #d1d3e2 !default;
-$gray-500: #b7b9cc !default;
-$gray-600: #858796 !default;
-$gray-700: #6e707e !default;
-$gray-800: #5a5c69 !default;
-$gray-900: #3a3b45 !default;
-$black: #000 !default;
+$primary  		:#007bff; 
+$secondary 		:#6c757d; 
+$success  		:#28a745; 
+$danger  		:#dc3545; 
+$warning  		:#ffc107; 
+$info 	 		:#17a2b8; 
+$light  		:#f8f9fa; 
+$dark 	 		:#343a40; 
+$muted 	 		:#6c757d; 
 
-$blue: #4e73df !default;
-$indigo: #6610f2 !default;
-$purple: #6f42c1 !default;
-$pink: #e83e8c !default;
-$red: #e74a3b !default;
-$orange: #fd7e14 !default;
-$yellow: #f6c23e !default;
-$green: #1cc88a !default;
-$teal: #20c9a6 !default;
-$cyan: #36b9cc !default;
+$font-xs		: 0.760rem; 
+$font-s 		: 0.800rem; 
+$font-base		: 1rem;	 
+$font-md 		: 1.143rem; 	
+$font-lg 		: 1.286rem; 
+$font-xl		: 1.571rem;  
+$font-xxl		: 1.714rem; 	
+$font-xxxl		: 1.858rem; 
 
-// Custom Colors
-$brand-google: #ea4335 !default;
-$brand-facebook: #3b5998 !default;
+$line-xs		: 1rem;  			
+$line-s			: 1.143rem;
+$line-base		: 1.286rem;
+$line-md        : 1.571rem;
+$line-lg   		: 1.714rem;
+$line-xl		: 1.857rem;
+$line-xxl		: 2rem;
+$line-xxxl		: 2.14rem;
 
-// Set Contrast Threshold
-$yiq-contrasted-threshold: 195 !default;
+$font-bold		: 700;
+$font-semibold	: 600;
+$font-medium 	: 500;
+$font-regular	: 400;
+$font-light		: 300;
 
-// Typography
-$body-color: $gray-600 !default;
+$text-left		: left;
+$text-center	: center;
+$text-right		: right;
 
-$font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", 'Noto Color Emoji' !default;
-
-$font-weight-light: 300 !default;
-// $font-weight-base: 400;
-$headings-font-weight: 400 !default;
-
-// Shadows
-$box-shadow-sm: 0 0.125rem 0.25rem 0 rgba($gray-900, .2) !default;
-$box-shadow: 0 0.15rem 1.75rem 0 rgba($gray-900, .15) !default;
-// $box-shadow-lg: 0 1rem 3rem rgba($black, .175) !default;
-
-// Borders Radius
-$border-radius: 0.35rem !default;
-$border-color: darken($gray-200, 2%) !default;
-
-// Spacing Variables
-// Change below variable if the height of the navbar changes
-$topbar-base-height: 4.375rem !default;
-// Change below variable to change the width of the sidenav
-$sidebar-base-width: 14rem !default;
-// Change below variable to change the width of the sidenav when collapsed
-$sidebar-collapsed-width: 6.5rem !default;
-
-// Card
-$card-cap-bg: $gray-100 !default;
-$card-border-color: $border-color !default;
-
-// Adjust column spacing for symmetry
-$spacer: 1rem !default;
-$grid-gutter-width: $spacer * 1.5 !default;
-
-// Transitions
-$transition-collapse: height .15s ease !default;
-
-// Dropdowns
-$dropdown-font-size: 0.85rem !default;
-$dropdown-border-color: $border-color !default;
-
-// Images
-$login-image: 'https://source.unsplash.com/K4mSJ7kc0As/600x800' !default;
-$register-image: 'https://source.unsplash.com/Mv9hjnEUHR4/600x800' !default;
-$password-image: 'https://source.unsplash.com/oWTW-jNGl9I/600x800' !default;
+$facebook 		: #3b5998;
+$twitter		: #00aced;
+$linkedin		: #0077B5;
+$dribbble		: #c73b65;
+$googleplus		: #d34836;
+$instagram		: #e2306a;
+$pinterest		: #c92228;
+$dropbox		: #3d9ae8;
+$flickr			: #0063DC;
+$tumblr			: #34526f;
+$skype			: #12a5f4;
+$youtube		: #c4302b;
+$github			: #323232; 
