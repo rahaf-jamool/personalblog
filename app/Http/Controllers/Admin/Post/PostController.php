@@ -131,13 +131,10 @@ class PostController extends Controller
                     $post->storeImage($photo->storeAs('images/post/photos/'.$post->name , $fileName,'public'),'gallery');
                 }
             }
-            // $notification=Post::find($post->id);
-            // event(new PostEvent($notification));
             return $this->SuccessMessage ('posts.index', ' added');
         } catch (\Exception $ex) {
             DB::rollback();
-            return $ex->getMessage();
-            // return $this->ErrorMessage ('posts.edit', $ex->getMessage ());
+            return $this->ErrorMessage ('posts.edit', $ex->getMessage ());
         }   
     }
     public function destroy($id)

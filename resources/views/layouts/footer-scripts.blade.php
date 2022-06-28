@@ -31,3 +31,5 @@
 <script src="{{ URL::asset('admin/assets/js/custom.js') }}"></script>
 
 <script src="{{asset('vendor/aos/aos.js')}}"></script>
+
+@stack('scripts')

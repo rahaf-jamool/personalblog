@@ -12,12 +12,12 @@
         </div>
     @endif
 
-    <form action="{{ route('categories.update',$category->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('testimonials.update',$testimonial->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="form-group m-4">
-            <h2>{{__('admin.updateCategory')}}</h2>
+            <h2>Update Testimonial</h2>
         </div>
 
         <div class="container">
@@ -38,32 +38,21 @@
                     <div class="form-group col-sm-7">
                         <label class="required" for="en_name">{{__('admin.name')}}</label>
                         <input class="form-control {{ $errors->has('en_name') ? 'is-invalid' : '' }}" type="text"
-                               name="en_name" id="en_name" value="{{ $category->getTranslation('name','en') }}">
+                               name="en_name" id="en_name" value="{{ $testimonial->getTranslation('name','en') }}">
                         @if($errors->has('en_name'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('en_name') }}
                             </div>
                         @endif
                     </div>
-                    {{-- client --}}
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="en_client">{{__('admin.shortDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_short_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_short_desc" id="en_short_desc" value="{{ $category->getTranslation('short_desc','en') }}">
-                        @if($errors->has('en_short_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('en_short_desc') }}
-                            </div>
-                        @endif
-                    </div>
                     {{-- desc --}}
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_desc">{{__('admin.longDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_long_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_long_desc" id="en_long_desc" value="{{ $category->getTranslation('long_desc','en') }}">
-                        @if($errors->has('en_long_desc'))
+                        <label class="required" for="en_client">Desc</label>
+                        <input class="form-control {{ $errors->has('en_desc') ? 'is-invalid' : '' }}" type="text"
+                               name="en_desc" id="en_desc" value="{{ $testimonial->getTranslation('desc','en') }}">
+                        @if($errors->has('en_desc'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('en_long_desc') }}
+                                {{ $errors->first('en_desc') }}
                             </div>
                         @endif
                     </div>
@@ -73,32 +62,21 @@
                     <div class="form-group col-sm-7">
                         <label class="required" for="title">{{__('admin.name')}}</label>
                         <input class="form-control {{ $errors->has('ar_name') ? 'is-invalid' : '' }}" type="text"
-                               name="ar_name" id="ar_name" value="{{ $category->getTranslation('name','ar') }}">
+                               name="ar_name" id="ar_name" value="{{ $testimonial->getTranslation('name','ar') }}">
                         @if($errors->has('ar_name'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('ar_name') }}
                             </div>
                         @endif
                     </div>
-                    {{-- client --}}
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="title">{{__('admin.shortDesc')}}</label>
-                        <input class="form-control {{ $errors->has('ar_short_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="ar_short_desc" id="ar_short_desc" value="{{ $category->getTranslation('short_desc','ar') }}">
-                        @if($errors->has('ar_short_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('ar_short_desc') }}
-                            </div>
-                        @endif
-                    </div>
                     {{-- desc --}}
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">{{__('admin.longDesc')}}</label>
-                        <input class="form-control {{ $errors->has('ar_long_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="ar_long_desc" id="ar_long_desc" value="{{ $category->getTranslation('long_desc','ar') }}">
-                        @if($errors->has('ar_long_desc'))
+                        <label class="required" for="title">Desc</label>
+                        <input class="form-control {{ $errors->has('ar_desc') ? 'is-invalid' : '' }}" type="text"
+                               name="ar_desc" id="ar_desc" value="{{ $testimonial->getTranslation('desc','ar') }}">
+                        @if($errors->has('ar_desc'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('ar_long_desc') }}
+                                {{ $errors->first('ar_desc') }}
                             </div>
                         @endif
                     </div>

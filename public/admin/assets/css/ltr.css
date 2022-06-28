@@ -11021,7 +11021,6 @@ span.CodeMirror-selectedtext {
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
@@ -20060,6 +20059,7 @@ ul.list-unstyled li {
 /*header*/
 .admin-header {
   background: #ffffff;
+  max-height: 5rem;
   -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1); }
@@ -20109,7 +20109,7 @@ ul.list-unstyled li {
 .admin-header .search .search-btn {
   color: #6c757d;
   padding: 14px;
-  display: table-row; }
+  display: revert; }
   .admin-header .search .search-btn:before {
     font-size: 16px; }
 
@@ -20226,6 +20226,7 @@ ul.list-unstyled li {
   overflow: hidden;
   margin-left: 215px;
   min-height: 100vh;
+  margin-top: 50px;
   -webkit-transition: all 0.9s ease;
   -moz-transition: all 0.9s ease;
   -ms-transition: all 0.9s ease;

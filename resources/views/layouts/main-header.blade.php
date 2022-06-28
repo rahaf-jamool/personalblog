@@ -18,16 +18,6 @@
                     <a id="button-toggle" class="button-toggle-nav inline-block ml-20 pull-left"
                         href="javascript:void(0);"><i class="zmdi zmdi-menu ti-align-right"></i></a>
                 </li>
-                <li class="nav-item">
-                    <div class="search">
-                        <a class="search-btn not_click" href="javascript:void(0);"></a>
-                        <div class="search-box not-click">
-                            <input type="text" class="not-click form-control" placeholder="Search" value=""
-                                name="search">
-                            <button class="search-button" type="submit"> <i class="fa fa-search not-click"></i></button>
-                        </div>
-                    </div>
-                </li>
             </ul>
             <!-- top bar right -->
             <ul class="nav navbar-nav ml-auto">

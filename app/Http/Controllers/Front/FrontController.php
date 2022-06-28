@@ -10,28 +10,47 @@ use App\Models\Contact\Contact;
 use App\Models\Post\Post;
 use App\Models\Service\Service;
 use App\Models\Tag\Tag;
+use App\Models\Testimonial\Testimonial;
+use App\Traits\MessageTrait;
 
 class FrontController extends Controller
 {
+    use MessageTrait;
     private $category;
     private $post;
     private $tag;
     private $contact;
     private $about;
-    public function __construct(Category $category, Post $post, Tag $tag, Contact $contact,About $about ){
+    private $testimonial;
+    private $service;
+    public function __construct(Category $category, Post $post, Tag $tag, Contact $contact, About $about, Testimonial $testimonial, Service $service){
         $this->category= $category;
         $this->post = $post;
         $this->tag = $tag;
         $this->contact = $contact;
         $this->about = $about;
+        $this->testimonial = $testimonial;
+        $this->service = $service;
+    }
+    public function get(){
+        try{
+            $about = $this->about->find(1);
+            return $this->returnData([
+                'about' => $about,
+            ], 'Done');
+        } catch (\Exception $ex) {
+            return $this->returnError($ex->getCode(), $ex->getMessage());
+        }
     }
     public function home(){
-        $services = Service::orderBy('id','desc')->get();
-        return view('front.pages.home',compact('services'));
+        $services = $this->service->orderBy('id','desc')->get();
+        $about = $this->about->find(1);
+        return view('front.pages.home',compact('services','about'));
     }
     public function about(){
-        $about = About::find(1);
-        return view('front.pages.about',compact('about'));
+        $about = $this->about->find(1);
+        $testimonials = $this->testimonial->orderBy('id','desc')->get();
+        return view('front.pages.about',compact('about','testimonials'));
     }
     public function service(){
         return view('front.pages.service',compact('services'));

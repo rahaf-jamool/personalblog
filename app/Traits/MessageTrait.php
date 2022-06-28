@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 trait MessageTrait
 {
@@ -11,30 +11,31 @@ trait MessageTrait
         return redirect ()->route ($route)
             ->with('success', 'Data ' . $msg . ' successfully');
     }
-
     public function ErrorMessage($route,$msg )
     {
         return redirect ()->route ($route)
             ->with('error', 'Data ' . $msg . 'failed');
     }
-
-    public function uploadImage ($image,$path)
+    public function returnData($value, $msg): JsonResponse
     {
-        $filename = $image->store($path, 'public');
-        return $filename;
+        return response()->json(
+            [
+                'Data' => $value,
+                'status' => true,
+                'stateNum' => '201',
+                'msg' => $msg
+            ]
+        )->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', '*');
     }
-    
-    public function updateUploadImage ($new_image,$path)
+    public function returnError($stateNum, $msg): JsonResponse
     {
-        $new_image = request()->file('image');
-        if($new_image){
-            if($new_image && file_exists(storage_path('app/public/' . $new_image->image))){
-                    Storage::delete('public/'. $new_image->image);
-                }
-                $new_image_path = $new_image->store($path, 'public');
-                request()->image = $new_image_path;
-        }
-        $filename = $new_image->store($path, 'public');
-        return $filename;
+        return response()->json(
+            [
+                'status' => false,
+                'stateNum' => $stateNum,
+                'msg' => $msg
+            ])->header('Access-Control-Allow-Origin', '*')
+            ->header('Access-Control-Allow-Methods', '*');
     }
 }

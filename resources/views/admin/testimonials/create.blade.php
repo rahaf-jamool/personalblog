@@ -14,11 +14,11 @@
         </div>
     @endif
 
-    <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('testimonials.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group m-4">
-            <h2>{{__('admin.createCategory')}}</h2>
+            <h2>Create Testimonial</h2>
         </div>
         <div class="container">
         <!-- Nav tabs -->
@@ -45,22 +45,12 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_client">{{__('admin.shortDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_short_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_short_desc" id="en_short_desc" value="{{ old('en_short_desc', '') }}">
-                        @if($errors->has('en_short_desc'))
+                        <label class="required" for="en_client">Desc</label>
+                        <input class="form-control {{ $errors->has('en_desc') ? 'is-invalid' : '' }}" type="text"
+                               name="en_desc" id="en_desc" value="{{ old('en_desc', '') }}">
+                        @if($errors->has('en_desc'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('en_short_desc') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="en_desc">{{__('admin.longDesc')}}</label>
-                        <input class="form-control {{ $errors->has('en_long_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="en_long_desc" id="en_long_desc" value="{{ old('en_long_desc', '') }}">
-                        @if($errors->has('en_long_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('en_long_desc') }}
+                                {{ $errors->first('en_desc') }}
                             </div>
                         @endif
                     </div>
@@ -77,22 +67,12 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">{{__('admin.shortDesc')}}</label>
-                        <input class="form-control {{ $errors->has('ar_short_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="ar_short_desc" id="ar_short_desc" value="{{ old('ar_short_desc', '') }}">
-                        @if($errors->has('ar_short_desc'))
+                        <label class="required" for="title">Desc</label>
+                        <input class="form-control {{ $errors->has('ar_desc') ? 'is-invalid' : '' }}" type="text"
+                               name="ar_desc" id="ar_desc" value="{{ old('ar_desc', '') }}">
+                        @if($errors->has('ar_desc'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('ar_short_desc') }}
-                            </div>
-                        @endif
-                    </div>
-                    <div class="form-group col-sm-7">
-                        <label class="required" for="title">{{__('admin.longDesc')}}</label>
-                        <input class="form-control {{ $errors->has('ar_long_desc') ? 'is-invalid' : '' }}" type="text"
-                               name="ar_long_desc" id="ar_long_desc" value="{{ old('ar_long_desc', '') }}">
-                        @if($errors->has('ar_long_desc'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('ar_long_desc') }}
+                                {{ $errors->first('ar_desc') }}
                             </div>
                         @endif
                     </div>

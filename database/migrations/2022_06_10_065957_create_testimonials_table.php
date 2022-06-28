@@ -17,7 +17,6 @@ class CreateTestimonialsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('desc');
-            $table->enum('status', ['PUBLISH','DRAFT']);
             $table->timestamps();
         });
         //image

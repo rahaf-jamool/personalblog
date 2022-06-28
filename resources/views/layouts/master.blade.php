@@ -32,7 +32,7 @@
         <!--=================================
  Main content -->
         <!-- main-content -->
-        <div class="content-wrapper mt-5">
+        <div class="content-wrapper">
 
             @yield('page-header')
 
@@ -44,7 +44,7 @@
             <!--=================================
  footer -->
 
-            @include('layouts.footer')
+            {{-- @include('layouts.footer') --}}
         </div><!-- main content wrapper end-->
     </div>
     </div>
@@ -55,6 +55,7 @@
 
     @include('layouts.footer-scripts')
 
+    @stack('scripts')
 </body>
 
 </html>

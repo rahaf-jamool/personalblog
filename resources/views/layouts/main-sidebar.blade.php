@@ -48,18 +48,13 @@
                     </li>
                     <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>
                     <li>
-                        <a href="timeline.html"><i class="ti-comments-smiley"></i>
+                        <a href="{{route('testimonials.index')}}"><i class="ti-comments-smiley"></i>
                             <span class="right-nav-text">Testimonial</span>
                         </a>
                     </li>
                     <li>
-                        <a href="timeline.html"><i class="ti-info"></i>
+                        <a href="{{route('admin.about')}}"><i class="ti-info"></i>
                             <span class="right-nav-text">About</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="timeline.html"><i class="ti-settings"></i>
-                            <span class="right-nav-text">Setting</span>
                         </a>
                     </li>
                 </ul>

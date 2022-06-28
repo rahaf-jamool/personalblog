@@ -26,7 +26,7 @@
         @include('layouts.main-sidebar')
 
         <!-- main-content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper mb-2 mt-5">
             <div class="page-title">
                 <div class="row">
                     <div class="col-sm-6">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!-- widgets -->
-            <div class="row">
+            <div class="row mt-5">
                 <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -658,13 +658,7 @@
                     </div>
                 </div>
             </div>
-            <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
-
-            @include('layouts.footer')
+            {{-- @include('layouts.footer') --}}
         </div><!-- main content wrapper end-->
     </div>
     </div>

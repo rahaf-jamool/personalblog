@@ -20,3 +20,5 @@
 @else
     <link href="{{ URL::asset('admin/assets/css/ltr.css') }}" rel="stylesheet">
 @endif
+
+@yield('styles')

@@ -80,10 +80,13 @@
     <script src="{{asset('vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('vendor/waypoints/noframework.waypoints.js')}}"></script>
 
-    <script src="{{ asset('admin/vendor/jquery/jquery.min.js') }}"></script>
-
     <!-- Template Main JS File -->
     <script src="{{asset('js/main.js')}}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
     <script>
         var url = {{route('blog.like')}}
     </script>

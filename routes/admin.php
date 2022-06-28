@@ -44,8 +44,16 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
         // Manage Tags
         Route::group([ 'namespace' => 'Admin\Tag'], function () {
             Route::resource('tags','TagController');
-        }
-        );
+        });
+        // Manage Testimonial
+        Route::group([ 'namespace' => 'Admin\Testimonial'], function () {
+            Route::resource('testimonials','TestimonialController');
+        });
+        //manage about
+        Route::group(['prefix'=>'abouts','namespace'=>'Admin\About'],function () {
+            Route::get('/', 'AboutController@about')->name('admin.about');
+            Route::put('/update', 'AboutController@aboutUpdate')->name('about.update');
+        });
     // Manage users
         Route::group(['prefix' => 'users', 'namespace' => 'Admin\User'], function () {
             Route::get('/', 'UserController@index')->name('admin.user');

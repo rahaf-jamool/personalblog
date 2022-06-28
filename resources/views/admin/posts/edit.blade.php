@@ -63,7 +63,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div id="english" class="container tab-pane active"><br>
+                <div id="english" class="container tab-pane active show in"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="en_name">Title</label>
                         <input class="form-control {{ $errors->has('en_title') ? 'is-invalid' : '' }}" type="text"
