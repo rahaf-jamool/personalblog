@@ -14,44 +14,25 @@
 <body>
 
     <div class="wrapper">
-
-        <!--=================================
- preloader -->
-
         <div id="pre-loader">
             <img src="{{asset('admin/assets/images/pre-loader/loader-03.svg')}}" alt="">
         </div>
-
-        <!--=================================
- preloader -->
 
         @include('layouts.main-header')
 
         @include('layouts.main-sidebar')
 
-        <!--=================================
- Main content -->
-        <!-- main-content -->
         <div class="content-wrapper">
 
             @yield('page-header')
 
             @yield('content')
 
-            <!--=================================
- wrapper -->
-
-            <!--=================================
- footer -->
-
             {{-- @include('layouts.footer') --}}
-        </div><!-- main content wrapper end-->
+        </div>
     </div>
     </div>
     </div>
-
-    <!--=================================
- footer -->
 
     @include('layouts.footer-scripts')
 

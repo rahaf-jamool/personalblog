@@ -21,7 +21,6 @@ class CreateServicesTable extends Migration
             $table->longText('long_desc');
             $table->timestamps();
         });
-        //image
     }
 
     /**

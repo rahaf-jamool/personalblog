@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-2 text-gray-800">Posts</h1>
+<h1 class="h3 mb-2 text-gray-800">{{__('admin.blogs')}}</h1>
 
 @if (session('success'))
 
@@ -20,19 +20,19 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a class="btn btn-success" href="{{route('posts.create')}}">Create post</a>
+        <a class="btn btn-success" href="{{route('posts.create')}}">{{__('admin.Cblog')}}</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Image</th>
-                        <th>title</th>
-                        <th>desc</th>
+                        <th>{{__('admin.no')}}</th>
+                        <th>{{__('admin.image')}}</th>
+                        <th>{{__('admin.title')}}</th>
+                        <th>{{__('admin.desc')}}</th>
                         {{-- <th>category</th> --}}
-                        <th>Option</th>
+                        <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,12 +50,12 @@
                         {{-- <td class="col-sm-2">{{ $post->category->name }}</td> --}}
                         <td class="col-sm-2">{{ $post->short_desc }}</td>
                         <td class="col-sm-3">
-                            <a href="{{route('posts.edit', [$post->id])}}" class="btn btn-info btn-sm">Edit</a>
-                            <a class="btn btn-primary btn btn-sm" href="{{route('posts.gallery', [$post->id])}}">Gallery</a>
+                            <a href="{{route('posts.edit', [$post->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
+                            <a class="btn btn-primary btn btn-sm" href="{{route('posts.gallery', [$post->id])}}">{{__('admin.gallery')}}</a>
                             <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('posts.destroy', $post->id)}}">
                                 @csrf
                                 <input type="hidden" value="DELETE" name="_method">
-                                <input type="submit" value="Trash" class="btn btn-danger btn-sm">
+                                <input type="submit" value="{{__('admin.trash')}}" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>

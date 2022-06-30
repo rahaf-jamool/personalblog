@@ -32,15 +32,15 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-big dropdown-notifications">
                         <div class="dropdown-header notifications">
-                            <strong>Notifications</strong>
+                            <strong>{{__('admin.notifications')}}</strong>
                             <span class="badge badge-pill badge-warning mr-3 ml-3" style="cursor: pointer">
-                              <a href="{{route('MarkAsRead_all')}}">Read all</a>
+                              <a href="{{route('MarkAsRead_all')}}">{{__('admin.readAll')}}</a>
                             </span>
                             <span class="badge-pill badge-success">{{ auth()->user()->unreadNotifications->count() }}</span>
                         </div>
                         <div class="dropdown-divider d-flex mr-3"></div>
                           @foreach(auth()->user()->unreadNotifications as $notification)
-                            <a href="#" class="dropdown-item"> A new comment has been added: {{$notification->data['comment']}}<small
+                            <a href="#" class="dropdown-item"> {{__('admin.addNewComment')}}: {{$notification->data['comment']}}<small
                                   class="float-right text-muted time">{{$notification->created_at->diffForHumans()}}</small> </a>
                           @endforeach
                     </div>
@@ -74,13 +74,7 @@
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
-                        {{-- <a class="dropdown-item" href="#"><i class="text-secondary ti-reload"></i>Activity</a> --}}
-                        <a class="dropdown-item" href="#"><i class="text-success ti-email"></i>Messages</a>
-                        <a class="dropdown-item" href="#"><i class="text-warning ti-user"></i>Profile</a>
-                        {{-- <a class="dropdown-item" href="#"><i class="text-dark ti-layers-alt"></i>Projects <span --}}
-                                {{-- class="badge badge-info">6</span> </a> --}}
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="text-info ti-settings"></i>Settings</a>
                         <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal"><i class="text-danger ti-unlock"></i>Logout</a>
                     </div>
                 </li>
@@ -91,17 +85,17 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('admin.readyLeave')}}</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">{{__('admin.selectLogout')}}</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">cancel</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">{{__('admin.cancel')}}</button>
           <a class="btn btn-primary" href="" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-              Logout
+              {{__('admin.logout')}}
           </a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf

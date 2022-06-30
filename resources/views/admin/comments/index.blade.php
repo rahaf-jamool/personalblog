@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-2 text-gray-800">Comments</h1>
+<h1 class="h3 mb-2 text-gray-800">{{__('admin.comments')}}</h1>
 
 @if (session('success'))
 
@@ -24,10 +24,10 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Comment</th>
-                        <th>Post</th>
-                        <th>Option</th>
+                        <th>{{__('admin.no')}}</th>
+                        <th>{{__('admin.comment')}}</th>
+                        <th>{{__('admin.post')}}</th>
+                        <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,7 @@
                             <form method="POST" action="{{route('comments.destroy', [$comment->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                <input type="submit" value="{{__('admin.delete')}}" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>

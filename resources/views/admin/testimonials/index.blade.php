@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-2 text-gray-800">Testimonial</h1>
+<h1 class="h3 mb-2 text-gray-800">{{__('admin.testimonial')}}</h1>
 
 @if (session('success'))
 
@@ -20,7 +20,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{route('testimonials.create')}}" class="btn btn-success">Create testimonial</a>
+        <a href="{{route('testimonials.create')}}" class="btn btn-success">{{__('admin.Ctestimonial')}}</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">

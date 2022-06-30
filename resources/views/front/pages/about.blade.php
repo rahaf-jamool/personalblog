@@ -1,17 +1,12 @@
 @extends('welcome')
 
 @section('content')
-    <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
-          <h2>About</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. 
-            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. 
-            Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>{{__('front.about')}}</h2>
+          <p>{{__('front.aboutDesc')}}</p>
         </div>
-
         <div class="row">
           <div class="col-lg-4">
             <img src="{{asset('storage/'.$about->photo->src)}}" class="img-fluid" alt="">
@@ -24,17 +19,17 @@
             <div class="row">
               <div class="col-lg-7">
                 <ul>
-                  <li><i class="bi bi-rounded-right"></i> <strong>phone:</strong> {{$about->phone}}</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>twitter:</strong> {{$about->twitter}}</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>facebook:</strong> {{$about->facebook}}</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>instegram:</strong> {{$about->instegram}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.phone')}}:</strong> {{$about->phone}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.twitter')}}:</strong> {{$about->twitter}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.facebook')}}:</strong> {{$about->facebook}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.instegram')}}:</strong> {{$about->instegram}}</li>
                 </ul>
               </div>
               <div class="col-lg-5">
                 <ul>
-                  <li><i class="bi bi-rounded-right"></i> <strong>address:</strong> {{$about->address}}</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>job:</strong> {{$about->job}}</li>
-                  <li><i class="bi bi-rounded-right"></i> <strong>gmail:</strong> {{$about->gmail}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.address')}}:</strong> {{$about->address}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.job')}}:</strong> {{$about->job}}</li>
+                  <li><i class="bi bi-rounded-right"></i> <strong>{{__('front.gmail')}}:</strong> {{$about->gmail}}</li>
                 </ul>
               </div>
             </div>
@@ -45,8 +40,7 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
-
+    </section>
     <!-- ======= Skills Section ======= -->
     {{-- <section id="skills" class="skills">
       <div class="container" data-aos="fade-up">
@@ -134,20 +128,17 @@
 
       </div>
     </section> --}}
-
-    <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container" data-aos="fade-up">
         <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>{{__('front.testimonials')}}</h2>
+          <p>{{__('front.testimonialDesc')}}</p>
         </div>
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
             @foreach ($testimonials as $testimonial)
               <div class="swiper-slide">
                   <div class="testimonial-item">
-                    {{-- <img src="{{asset('img/testimonials/testimonials-5.jpg')}}" class="testimonial-img" alt=""> --}}
                     <h3>{{$testimonial->name}}</h3>
                     <p>
                       <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -161,5 +152,5 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-    </section><!-- End Testimonials Section -->
+    </section>
 @endsection

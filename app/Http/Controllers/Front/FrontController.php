@@ -76,7 +76,8 @@ class FrontController extends Controller
     }
     public function contact()
     {
-        return view('front.pages.contact');
+        $about = $this->about->find(1);
+        return view('front.pages.contact',compact('about'));
     }
     public function sendMessage(Request $request){
         try {

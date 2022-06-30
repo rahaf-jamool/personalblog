@@ -19,7 +19,7 @@
     
     <div class="container">
         <div class="card-header">
-            <h1>Gallery post</h1>
+            <h1>{{__('admin.gallerblog')}}</h1>
             <span> {{$post->title}}</span>
         </div>
         <div class="gallery">

@@ -17,7 +17,7 @@
         @method('PUT')
 
         <div class="form-group m-4">
-            <h2>Update Testimonial</h2>
+            <h2>{{__('admin.Utestimonial')}}</h2>
         </div>
 
         <div class="container">
@@ -47,7 +47,7 @@
                     </div>
                     {{-- desc --}}
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_client">Desc</label>
+                        <label class="required" for="en_client">{{__('admin.desc')}}</label>
                         <input class="form-control {{ $errors->has('en_desc') ? 'is-invalid' : '' }}" type="text"
                                name="en_desc" id="en_desc" value="{{ $testimonial->getTranslation('desc','en') }}">
                         @if($errors->has('en_desc'))
@@ -71,7 +71,7 @@
                     </div>
                     {{-- desc --}}
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">Desc</label>
+                        <label class="required" for="title">{{__('admin.desc')}}</label>
                         <input class="form-control {{ $errors->has('ar_desc') ? 'is-invalid' : '' }}" type="text"
                                name="ar_desc" id="ar_desc" value="{{ $testimonial->getTranslation('desc','ar') }}">
                         @if($errors->has('ar_desc'))

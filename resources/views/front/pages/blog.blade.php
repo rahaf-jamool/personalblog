@@ -5,13 +5,12 @@
       <div class="breadcrumb-hero">
         <div class="container">
           <div class="breadcrumb-hero">
-            <h2>Blog</h2>
-            <p>Est dolorum ut non facere possimus quibusdam eligendi voluptatem. Quia id aut similique quia voluptas sit quaerat debitis. Rerum omnis ipsam aperiam consequatur laboriosam nemo harum praesentium. </p>
+            <h2>{{__('front.blogs')}}</h2>
+            <p>{{__('front.blogDesc')}}</p>
           </div>
         </div>
       </div>
     </section>
-
     <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
         <div class="row">
@@ -26,9 +25,9 @@
                 </h2>
                 <div class="entry-meta">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">{{$post->created_at->diffForHumans()}}</a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$post->date}}</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">{{$post->comments->count()}}</a></li>
+                    <li class="d-flex align-items-center"> <i class="bi bi-person m-2"></i> {{$post->created_at->diffForHumans()}} </li>
+                    <li class="d-flex align-items-center"> <i class="bi bi-clock m-2"></i><time datetime="2020-01-01"> {{$post->date}} </time></li>
+                    <li class="d-flex align-items-center"> <i class="bi bi-chat-dots m-2"></i> {{$post->comments->count()}} </li>
                   </ul>
                 </div>
                 <div class="entry-content">
@@ -59,7 +58,6 @@
             </article>              
             @endforeach
           </div>
-
           <div class="col-lg-4">
             <div class="sidebar">
               <h3 class="sidebar-title">{{__('front.search')}}</h3>
@@ -69,7 +67,6 @@
                   <button type="submit"><i class="bi bi-search"></i></button>
                 </form>
               </div>
-
               <h3 class="sidebar-title">{{__('front.categories')}}</h3>
               <div class="sidebar-item categories">
                 <ul>
@@ -78,7 +75,6 @@
                   @endforeach
                 </ul>
               </div>
-
               <h3 class="sidebar-title">{{__('front.recentPosts')}}</h3>
               <div class="sidebar-item recent-posts">
                 @foreach ($posts->take(3) as $latestPost)
@@ -101,7 +97,6 @@
 
             </div>
           </div>
-
           <div class="justify-content-center d-flex mt-5">
             {{$posts->appends(Request::all())->links()}}
           </div>

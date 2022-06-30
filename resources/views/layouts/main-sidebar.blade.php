@@ -11,7 +11,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Managment</li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{__('admin.Managment')}}</li>
                     <li>
                         <a href="{{route('admin.user')}}">
                             <div class="pull-left">
@@ -20,7 +20,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Widgets, Forms & Tables</li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{__('admin.FormsTables')}}</li>
                     <li>
                         <a href="{{route('categories.index')}}"><i class="ti-layout-grid4"></i>
                             <span class="right-nav-text">{{__('admin.categories')}}</span>
@@ -46,15 +46,15 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">More Pages</li>
+                    <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{__('admin.MorePages')}}</li>
                     <li>
                         <a href="{{route('testimonials.index')}}"><i class="ti-comments-smiley"></i>
-                            <span class="right-nav-text">Testimonial</span>
+                            <span class="right-nav-text">{{__('admin.testimonial')}}</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('admin.about')}}"><i class="ti-info"></i>
-                            <span class="right-nav-text">About</span>
+                            <span class="right-nav-text">{{__('admin.about')}}</span>
                         </a>
                     </li>
                 </ul>

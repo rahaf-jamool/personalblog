@@ -22,7 +22,7 @@
     @method('PUT')
 
     <div class="form-group m-4">
-        <h2>Update About</h2>
+        <h2>{{__('admin.Uabout')}}</h2>
     </div>
     <div class="container">
         <div class="form-group col-md-6">
@@ -36,14 +36,14 @@
                             {{ $errors->first('photo') }}
                         </div>
                     </div>
-                    <h6>Select photo</h6>
+                    <h6>{{__('admin.Selectphotomain')}}</h6>
                 </div>
             </div>
         </div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#english">English</a>
+                <a class="nav-link active" data-toggle="tab" href="#english">{{__('admin.english')}}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" data-toggle="tab" href="#arabic">Arabic</a>
@@ -54,7 +54,7 @@
         <div class="tab-content">
             <div id="english" class="container tab-pane active"><br>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="en_name">Name</label>
+                    <label class="required" for="en_name">{{__('admin.name')}}</label>
                     <input class="form-control {{ $errors->has('en_name') ? 'is-invalid' : '' }}" type="text"
                             name="en_name" id="en_name" value="{{ $about->getTranslation('name','en') }}">
                     @if($errors->has('en_name'))
@@ -64,7 +64,7 @@
                     @endif
                 </div>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="en_short_desc">Short Desc</label>
+                    <label class="required" for="en_short_desc">{{__('admin.shortDesc')}}</label>
                     <input class="form-control {{ $errors->has('en_short_desc') ? 'is-invalid' : '' }}" type="text"
                             name="en_short_desc" id="en_short_desc" value="{{ $about->getTranslation('short_desc','en') }}">
                     @if($errors->has('en_short_desc'))
@@ -74,7 +74,7 @@
                     @endif
                 </div>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="en_long_desc">Long Desc</label>
+                    <label class="required" for="en_long_desc">{{__('admin.longDesc')}}</label>
                     <input class="form-control {{ $errors->has('en_long_desc') ? 'is-invalid' : '' }}" type="text"
                             name="en_long_desc" id="en_long_desc" value="{{ $about->getTranslation('long_desc','en') }}">
                     @if($errors->has('en_long_desc'))
@@ -86,7 +86,7 @@
             </div>
             <div id="arabic" class="container tab-pane fade"><br>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="ar_name">Name</label>
+                    <label class="required" for="ar_name">{{__('admin.name')}}</label>
                     <input class="form-control {{ $errors->has('ar_name') ? 'is-invalid' : '' }}" type="text"
                             name="ar_name" id="ar_name" value="{{ $about->getTranslation('name','ar') }}">
                     @if($errors->has('ar_name'))
@@ -96,7 +96,7 @@
                     @endif
                 </div>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="ar_short_desc">Short Desc</label>
+                    <label class="required" for="ar_short_desc">{{__('admin.shortDesc')}}</label>
                     <input class="form-control {{ $errors->has('ar_short_desc') ? 'is-invalid' : '' }}" type="text"
                             name="ar_short_desc" id="ar_short_desc" value="{{ $about->getTranslation('short_desc','ar') }}">
                     @if($errors->has('ar_short_desc'))
@@ -106,7 +106,7 @@
                     @endif
                 </div>
                 <div class="form-group col-sm-7">
-                    <label class="required" for="ar_long_desc">Long Desc</label>
+                    <label class="required" for="ar_long_desc">{{__('admin.longDesc')}}</label>
                     <input class="form-control {{ $errors->has('ar_long_desc') ? 'is-invalid' : '' }}" type="text"
                             name="ar_long_desc" id="ar_long_desc" value="{{ $about->getTranslation('long_desc','ar') }}">
                     @if($errors->has('ar_long_desc'))
@@ -119,7 +119,7 @@
         </div>
         <div class="d-flex flex-wrap p-3">
         <div class="form-group col-sm-6">
-            <label for="gmail" class="col-sm-2 col-form-label">Gmail</label>
+            <label for="gmail" class="col-sm-2 col-form-label">{{__('admin.email')}}</label>
             <input class="form-control {{$errors->first('gmail') ? "is-invalid" : "" }} " type="email" name='gmail'
                 value="{{old('gmail') ? old('gmail') : $about->gmail}}" id="gmail" >
             <div class="invalid-feedback">
@@ -127,7 +127,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <label for="address" class="col-sm-2 col-form-label">{{__('admin.address')}}</label>
             <input class="form-control {{$errors->first('address') ? "is-invalid" : "" }} " type="text" name='address'
                 value="{{old('address') ? old('address') : $about->address}}" id="address" >
             <div class="invalid-feedback">
@@ -135,7 +135,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+            <label for="phone" class="col-sm-2 col-form-label">{{__('admin.phone')}}</label>
             <input class="form-control {{$errors->first('phone') ? "is-invalid" : "" }} " type="text" name='phone'
                 value="{{old('phone') ? old('phone') : $about->phone}}" id="phone" >
             <div class="invalid-feedback">
@@ -143,7 +143,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="twitter" class="col-sm-2 col-form-label">Twitter</label>
+            <label for="twitter" class="col-sm-2 col-form-label">{{__('admin.twitter')}}</label>
             <input class="form-control {{$errors->first('twitter') ? "is-invalid" : "" }} " type="text" name='twitter'
                 value="{{old('twitter') ? old('twitter') : $about->twitter}}" id="twitter" >
             <div class="invalid-feedback">
@@ -151,7 +151,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
+            <label for="facebook" class="col-sm-2 col-form-label">{{__('admin.facebook')}}</label>
             <input class="form-control {{$errors->first('facebook') ? "is-invalid" : "" }} " type="text" name='facebook'
                 value="{{old('facebook') ? old('facebook') : $about->facebook}}" id="facebook" >
             <div class="invalid-feedback">
@@ -159,7 +159,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="instegram" class="col-sm-2 col-form-label">Instegram</label>
+            <label for="instegram" class="col-sm-2 col-form-label">{{__('admin.instegram')}}</label>
             <input class="form-control {{$errors->first('instegram') ? "is-invalid" : "" }} " type="text"
                 name='instegram' value="{{old('instegram') ? old('instegram') : $about->instegram}}" id="instegram">
             <div class="invalid-feedback">
@@ -167,7 +167,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="youtube" class="col-sm-2 col-form-label">Youtube</label>
+            <label for="youtube" class="col-sm-2 col-form-label">{{__('admin.youtube')}}</label>
             <input class="form-control {{$errors->first('youtube') ? "is-invalid" : "" }} " type="text" name='youtube'
                 value="{{old('youtube') ? old('youtube') : $about->youtube}}" id="youtube" >
             <div class="invalid-feedback">
@@ -175,7 +175,7 @@
             </div>
         </div>
         <div class="form-group col-sm-6">
-            <label for="job" class="col-sm-2 col-form-label">Job</label>
+            <label for="job" class="col-sm-2 col-form-label">{{__('admin.job')}}</label>
             <input class="form-control {{$errors->first('job') ? "is-invalid" : "" }} " type="text" name='job'
                 value="{{old('job') ? old('job') : $about->job}}" id="job" >
             <div class="invalid-feedback">
@@ -185,7 +185,7 @@
         </div>
         <div class="form-group ml-3">
             <div class="col-sm-3">
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
             </div>
         </div>
     </div>

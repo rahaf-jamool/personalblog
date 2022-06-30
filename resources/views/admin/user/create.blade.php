@@ -18,11 +18,11 @@
         @csrf
 
         <div class="form-group m-4">
-            <h2>Create user</h2>
+            <h2>{{__('admin.Cuser')}}</h2>
         </div>
         <div class="container">
             <div class="form-group ml-5">
-                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <label for="name" class="col-sm-2 col-form-label">{{__('admin.name')}}</label>
                 <div class="col-sm-9">
                     <input type="text" name='name' class="form-control {{$errors->first('name') ? "is-invalid" : "" }} "
                            value="{{old('name')}}" id="name">
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="form-group ml-5">
-                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                <label for="username" class="col-sm-2 col-form-label">{{__('admin.username')}}</label>
                 <div class="col-sm-9">
                     <input type="text" name='username' class="form-control {{$errors->first('username') ? "is-invalid" : "" }} "
                            value="{{old('username')}}" id="username">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group ml-5">
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
+                <label for="email" class="col-sm-2 col-form-label">{{__('admin.email')}}"}</label>
                 <div class="col-sm-9">
                     <input type="email" name='email'
                            class="form-control {{$errors->first('email') ? "is-invalid" : "" }} "
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="form-group ml-5">
-                <label for="password" class="col-sm-2 col-form-label">Password</label>
+                <label for="password" class="col-sm-2 col-form-label">{{__('admin.password')}}</label>
                 <div class="col-sm-9">
                     <input type="password" name='password'
                            class="form-control {{$errors->first('password') ? "is-invalid" : "" }} "
@@ -65,7 +65,7 @@
             </div>
             <div class="form-group ml-5">
                 <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">{{__('create')}}</button>
                 </div>
             </div>
         </div>

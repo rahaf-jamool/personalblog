@@ -19,7 +19,7 @@
         @method('PUT')
 
         <div class="form-group m-4">
-            <h2>Update post</h2>
+            <h2>{{__('admin.Ublog')}}</h2>
         </div>
 
         <div class="container">
@@ -34,7 +34,7 @@
                                 {{ $errors->first('photo') }}
                             </div>
                         </div>
-                        <h6>Select photo</h6>
+                        <h6>{{__('admin.Selectphotomain')}}</h6>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 <div class="custom-file">
                     <input type="file" id="photos" name="photos[]" accept="image/*"
                             class="custom-file-input" multiple="multiple">
-                    <label class="custom-file-label" for="photos">select photos</label>
+                    <label class="custom-file-label" for="photos">{{__('admin.Selectphoto')}}</label>
                     <div class="invalid-feedback">
                         {{ $errors->first('photos') }}
                     </div>
@@ -54,10 +54,10 @@
         <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#english">English</a>
+                    <a class="nav-link active" data-toggle="tab" href="#english">{{__('admin.english')}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#arabic">Arabic</a>
+                    <a class="nav-link" data-toggle="tab" href="#arabic">{{__('admin.arabic')}}</a>
                 </li>
             </ul>
 
@@ -65,7 +65,7 @@
             <div class="tab-content">
                 <div id="english" class="container tab-pane active show in"><br>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_name">Title</label>
+                        <label class="required" for="en_name">{{__('admin.title')}}</label>
                         <input class="form-control {{ $errors->has('en_title') ? 'is-invalid' : '' }}" type="text"
                                name="en_title" id="en_title" value="{{ $post->getTranslation('title','en') }}">
                         @if($errors->has('en_title'))
@@ -75,7 +75,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_client">Short Desc</label>
+                        <label class="required" for="en_client">{{__('admin.shortDesc')}}</label>
                         <input class="form-control {{ $errors->has('en_short_desc') ? 'is-invalid' : '' }}" type="text"
                                name="en_short_desc" id="en_short_desc" value="{{ $post->getTranslation('short_desc','en') }}">
                         @if($errors->has('en_short_desc'))
@@ -85,7 +85,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="en_desc">Long Desc</label>
+                        <label class="required" for="en_desc">{{__('admin.longDesc')}}</label>
                         <input class="form-control {{ $errors->has('en_long_desc') ? 'is-invalid' : '' }}" type="text"
                                name="en_long_desc" id="en_long_desc" value="{{ $post->getTranslation('long_desc','en') }}">
                         @if($errors->has('en_long_desc'))
@@ -97,7 +97,7 @@
                 </div>
                 <div id="arabic" class="container tab-pane fade"><br>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">Title</label>
+                        <label class="required" for="title">{{__('admin.title')}}</label>
                         <input class="form-control {{ $errors->has('ar_title') ? 'is-invalid' : '' }}" type="text"
                                name="ar_title" id="ar_title" value="{{ $post->getTranslation('title','ar') }}">
                         @if($errors->has('ar_title'))
@@ -107,7 +107,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">Short Desc</label>
+                        <label class="required" for="title">{{__('admin.shortDesc')}}</label>
                         <input class="form-control {{ $errors->has('ar_short_desc') ? 'is-invalid' : '' }}" type="text"
                                name="ar_short_desc" id="ar_short_desc" value="{{ $post->getTranslation('short_desc','ar') }}">
                         @if($errors->has('ar_short_desc'))
@@ -117,7 +117,7 @@
                         @endif
                     </div>
                     <div class="form-group col-sm-7">
-                        <label class="required" for="title">Long Desc</label>
+                        <label class="required" for="title">{{__('admin.longDesc')}}</label>
                         <input class="form-control {{ $errors->has('ar_long_desc') ? 'is-invalid' : '' }}" type="text"
                                name="ar_long_desc" id="ar_long_desc" value="{{ $post->getTranslation('long_desc','ar') }}">
                         @if($errors->has('ar_long_desc'))
@@ -130,11 +130,11 @@
             </div>
             {{-- category --}}
             <div class="form-group ml-4">
-                <label for="category" class="col-sm-2 col-form-label">Category</label>
+                <label for="category" class="col-sm-2 col-form-label">{{__('admin.category')}}</label>
                 <div class="col-sm-7">
                     <select name='category' class="form-control {{$errors->first('category') ? "is-invalid" : "" }} "
                             id="category">
-                        <option disabled selected>Choose one!</option>
+                        <option disabled selected>{{__('admin.Chooseone')}}!</option>
                         @foreach ($categories as $category)
                             <option
                                 {{ $category->id == $post->category_id ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="form-group ml-4">
-                <label for="date" class="col-sm-2 col-form-label">Date</label>
+                <label for="date" class="col-sm-2 col-form-label">{{__('admin.date')}}</label>
                 <div class="col-sm-7">
                     <input type="date" name='date' class="form-control {{$errors->first('date') ? "is-invalid" : "" }} " value="{{ $post->date }}" id="date" >
                     <div class="invalid-feedback">
@@ -172,7 +172,7 @@
             </div> --}}
             <div class="form-group ml-3">
                 <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
                 </div>
             </div>
         </div>

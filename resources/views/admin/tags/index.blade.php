@@ -8,7 +8,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-2 text-gray-800">Tags</h1>
+<h1 class="h3 mb-2 text-gray-800">{{__('admin.tags')}}</h1>
 
 @if (session('success'))
 
@@ -20,17 +20,17 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{route('tags.create')}}" class="btn btn-success">Create tag</a>
+        <a href="{{route('tags.create')}}" class="btn btn-success">{{__('admin.Ctag')}}</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Post</th>
-                        <th>Option</th>
+                        <th>{{__('admin.no')}}</th>
+                        <th>{{__('admin.name')}}</th>
+                        <th>{{{__('admin.post')}}}</th>
+                        <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,11 +44,11 @@
                         <td class="col-sm-2">{{ $tag->name }}</td>
                         <td class="col-sm-2">{{ $tag->post->title }}</td>
                         <td class="col-sm-3">
-                            <a href="{{route('tags.edit', [$tag->id])}}" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{{route('tags.edit', [$tag->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <form method="POST" action="{{route('tags.destroy', [$tag->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                <input type="submit" value="{{__('admin.delete')}}" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>

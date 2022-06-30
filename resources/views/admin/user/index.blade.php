@@ -20,17 +20,17 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <a href="{{ route('admin.user.create') }}" class="btn btn-success">Create user</a>
+        <a href="{{ route('admin.user.create') }}" class="btn btn-success">{{__('admin.Cuser')}}</a>
     </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Option</th>
+                        <th>{{__('admin.no')}}</th>
+                        <th>{{__('admin.name')}}</th>
+                        <th>{{__('admin.email')}}</th>
+                        <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,12 +45,12 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#changepasswordModal" class="btn btn-primary btn-sm">Change password</a>
-                            <a href="{{route('admin.user.edit', [$user->id])}}" class="btn btn-info btn-sm"> Edit </a>
+                            <a href="#" data-toggle="modal" data-target="#changepasswordModal" class="btn btn-primary btn-sm">{{__('admin.changepass')}}</a>
+                            <a href="{{route('admin.user.edit', [$user->id])}}" class="btn btn-info btn-sm"> {{__('admin.edit')}} </a>
                             <form method="POST" action="{{route('admin.user.destroy', [$user->id])}}" class="d-inline" onsubmit="return confirm('Delete this user permanently?')">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                <input type="submit" value="{{__('admin.delete')}}" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>
