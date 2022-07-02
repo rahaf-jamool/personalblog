@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/store-playlist','Youtube\YoutubeController@getPlayList');
+Route::get('/store-playlist-video','Youtube\YoutubeController@getVideos');
+Route::get('/search','Youtube\YoutubeController@searchHistory');
