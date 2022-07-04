@@ -3,7 +3,12 @@
 
 <!-- Favicon -->
 {{-- <link rel="shortcut icon" href="{{ URL::asset('admin/assets/images/favicon.ico') }}" type="image/x-icon" /> --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    {{-- Summernote CDN --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 
+    {{-- Select2 Style CDN --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 <!-- Font -->
 <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Poppins:200,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900">

@@ -32,11 +32,12 @@ class PostController extends Controller
     public function create()
     {
         $categories = $this->category->get();
-        // $tags = $this->tag::get();
-        return view('admin.posts.create',compact('categories'));
+        $tags = $this->tag->get();
+        return view('admin.posts.create',compact('categories','tags'));
     }
     public function store(Request $request)
     {
+        // return $request->all();
         try {
             DB::beginTransaction();
             $slug = $request->en_title;
@@ -58,7 +59,11 @@ class PostController extends Controller
                     'ar' => $request->input('ar_long_desc')
                 ],
             ];
-            $post = $this->post->create($data); 
+            $post = $this->post->create($data);
+            if ($request->has('tags')) {
+                $post = $this->post->find($post->id);
+                $post->tags()->syncWithoutDetaching($request->get('tags'));
+            }
             DB::commit();
             // insert photo main 
             if($request->file('photo')){
@@ -89,7 +94,8 @@ class PostController extends Controller
     {
         $post = $this->post->with(['photo','category'])->findOrFail($id);
         $categories = $this->category->get();
-        return view('admin.posts.edit',compact('post','categories'));
+        $tags = $this->tag->get();
+        return view('admin.posts.edit',compact('post','categories','tags'));
     }
     public function update(Request $request,$id)
     {
@@ -116,7 +122,10 @@ class PostController extends Controller
                 ],
             ];
             $post->update($data); 
-            
+            if ($request->has('tags')) {
+                $post = $this->post->find($post->id);
+                $post->tags()->syncWithoutDetaching($request->get('tags'));
+            }
             DB::commit();
             // insert photo main 
             if($request->file('photo')){
@@ -139,32 +148,40 @@ class PostController extends Controller
     }
     public function destroy($id)
     {
-        $post = $this->post::findOrFail($id);
-        $post->delete();
-        return $this->SuccessMessage ('posts.index', ' deleted');
+        try{
+            DB::beginTransaction();
+            $this->post->findOrFail($id)->delete;
+            DB::commit();
+            return $this->SuccessMessage ('posts.index', ' trashed');
+        }
+        catch (\Exception $ex) {
+            DB::rollback();
+            return $this->ErrorMessage('posts.index', $ex->getMessage());
+        }
     }
     public function trash(){
-        $post = $this->post::onlyTrashed()->get();
+        $post = $this->post->onlyTrashed()->get();
         return view('admin.posts.trash', compact('post'));
     }
     public function restore($id) {
-        $post = $this->post::withTrashed()->findOrFail($id);
+        $post = $this->post->withTrashed()->findOrFail($id);
         if ($post->trashed()) {
             $post->restore();
-            return $this->SuccessMessage ('admin.post.trash', ' restored');
+            return $this->SuccessMessage ('posts.trash', ' restored');
         }else {
-            return $this->ErrorMessage ('admin.post.trash', 'Data is not in restore');
+            return $this->ErrorMessage ('posts.trash', 'Data is not in restore');
         }
     }
     public function deletePermanent($id){
-        $post = $this->post::withTrashed()->findOrFail($id);
+        $post = $this->post->withTrashed()->findOrFail($id);
         if (!$post->trashed()) {
-            return $this->ErrorMessage ('admin.post.trash', 'Data is not in trash');
+            return $this->ErrorMessage ('posts.trash', 'Data is not in trash');
         }else {
             $post->tags()->detach();
             $post->photo()->delete();
+            $post->photos()->delete();
             $post->forceDelete();
-        return redirect()->route('admin.post.trash')->with('success', 'Data deleted successfully');
+        return redirect()->route('posts.trash')->with('success', 'Data deleted successfully');
         }
     }
     public function showGallery($id)
@@ -183,9 +200,4 @@ class PostController extends Controller
             return $this->ErrorMessage ('posts.gallery', $ex->getMessage ());
         }
     }
-    // public function MarkNotification(){
-    //     foreach(auth()->user()->unreadNotifications as $notification){
-    //         $notification->markAsRead();
-    //     }
-    // }
 }

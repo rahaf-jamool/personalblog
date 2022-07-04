@@ -28,8 +28,13 @@
         <div class="form-group col-md-6">
             <div class="picture-container">
                 <div class="picture">
-                    <img src="{{ asset('storage/'.$about->photo->src) }}" class="picture-src"
+                    @if ($about->photo == '')
+                        <img src="{{ asset('img/favicon.png') }}" class="picture-src"
                             id="wizardPicturePreview" height="200px" width="400px" title=""/>
+                    @else
+                        <img src="{{ asset('storage/'.$about->photo->src) }}" class="picture-src"
+                            id="wizardPicturePreview" height="200px" width="400px" title=""/>
+                    @endif
                     <input type="file" id="wizard-picture" name="photo"
                                 class="form-control {{$errors->first('photo') ? "is-invalid" : "" }} ">
                         <div class="invalid-feedback">

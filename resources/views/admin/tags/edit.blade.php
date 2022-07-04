@@ -60,22 +60,6 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group ml-4">
-                <label for="post" class="col-sm-2 col-form-label">{{__('admin.post')}}</label>
-                <div class="col-sm-7">
-                    <select name='post' class="form-control {{$errors->first('post') ? "is-invalid" : "" }} "
-                            id="post">
-                        <option disabled selected>{{__('admin.Chooseone')}}!</option>
-                        @foreach ($posts as $post)
-                            <option
-                                {{ $post->id == $post->post_id ? 'selected' : '' }} value="{{ $post->id }}">{{ $post->title }}</option>
-                        @endforeach
-                    </select>
-                    @error('post')
-                    <small class="form-text text-danger"> {{ $message }}</small>
-                    @enderror
-                </div>
-            </div>
             <div class="form-group ml-3">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>

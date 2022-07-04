@@ -8,6 +8,7 @@
             <li><a href="{{route('home.about')}}">{{__('front.about')}}</a></li>
             <li><a href="{{route('home.blog')}}">{{__('front.blogs')}}</a></li>
             <li><a href="{{route('home.service')}}">{{__('front.services')}}</a></li>
+            <li><a href="{{route('home.mychannel')}}">My Channnel</a></li>
             <li><a href="{{route('home.contact')}}">{{__('front.contact')}}</a></li>
             {{-- dropdown language --}}
             <li class="dropdown m-4">

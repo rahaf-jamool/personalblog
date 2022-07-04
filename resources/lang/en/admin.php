@@ -82,4 +82,6 @@ return [
     'instegram' => 'Instegram',
     'youtube' => 'Youtube',
     'job' => 'Job',
+    'trashBlog' => 'Trash Blog',
+    'restore' => 'Restore'
 ];

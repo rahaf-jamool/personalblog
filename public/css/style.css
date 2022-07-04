@@ -1537,6 +1537,33 @@ ul a:hover {
   width: 100%;
   height: 100%;
 }
+.image {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+.imgPreview {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.imgPreview img{
+    max-width: 100px;
+}
+a.btn.galy.btn-sm {
+    color: white;
+    background-color: steelblue;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    align-items: center;
+    gap: 30px;
+}
 .rowInput {
     display: flex;
     gap: 15px;
@@ -1544,7 +1571,9 @@ ul a:hover {
 .selectLang {
     margin-top: 38px;
 }
-
+select#category {
+    height: 100%;
+}
 .tip {
   width: 0px;
   height: 0px;
@@ -1603,4 +1632,63 @@ ul a:hover {
   font-size: 14px;
   line-height: 1.5;
   color: #797979;
+}
+
+.playlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 20px 0;
+  justify-content: center;
+  align-items: center;
+}
+.overlay{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transition: .5s ease;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.playlist-title{
+  font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.playlist .item {
+  position: relative;
+  width: 18rem;
+}
+.playlist .item .image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.playlist .item .middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.playlist .item:hover .image {
+  opacity: 0.3;
+}
+.playlist .item:hover .middle {
+  opacity: 1;
+}
+.playlist .item .text {
+  background-color: #34b7a7;
+  color: white;
+  padding: 6px 4px;
 }

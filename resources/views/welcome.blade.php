@@ -36,6 +36,8 @@
         @if (config('app.locale') == 'ar')
             <link rel="stylesheet" href="{{asset('admin/vendor/bootstrap/bootstrap-rtl.css')}}">
         @endif
+
+        @yield('styles')
     </head>
     <body>
             {{-- @if (Route::has('login'))

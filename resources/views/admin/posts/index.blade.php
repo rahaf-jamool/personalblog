@@ -41,15 +41,19 @@
                 @endphp
 
                 @foreach ($posts as $post)
-                    <tr class="col-sm-12">
-                        <td class="col-sm-1">{{ ++$no }}</td>
-                        <td class="col-sm-2">
-                            <img src="{{ asset('storage/'.$post->photo->src) }}" alt="" style="height: 100px; width: 100px">
+                    <tr class="c">
+                        <td class="">{{ ++$no }}</td>
+                        <td class="">
+                            @if ($post->photo == '')
+                                <img src="{{ asset('img/noimage.jpg') }}" alt="" style="height: 100px; width: 100px">
+                            @else
+                                <img src="{{ asset('storage/'.$post->photo->src) }}" alt="" style="height: 100px; width: 100px">
+                            @endif
                         </td>
-                        <td class="col-sm-2">{{ $post->title }}</td>
+                        <td class="">{{ $post->title }}</td>
                         {{-- <td class="col-sm-2">{{ $post->category->name }}</td> --}}
-                        <td class="col-sm-2">{{ $post->short_desc }}</td>
-                        <td class="col-sm-3">
+                        <td class="">{{ $post->short_desc }}</td>
+                        <td class="">
                             <a href="{{route('posts.edit', [$post->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <a class="btn btn-primary btn btn-sm" href="{{route('posts.gallery', [$post->id])}}">{{__('admin.gallery')}}</a>
                             <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('posts.destroy', $post->id)}}">

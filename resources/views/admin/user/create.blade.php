@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group ml-5">
-                <label for="email" class="col-sm-2 col-form-label">{{__('admin.email')}}"}</label>
+                <label for="email" class="col-sm-2 col-form-label">{{__('admin.email')}}"</label>
                 <div class="col-sm-9">
                     <input type="email" name='email'
                            class="form-control {{$errors->first('email') ? "is-invalid" : "" }} "

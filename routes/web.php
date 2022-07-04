@@ -27,14 +27,17 @@ Auth::routes([
         return view('front.pages.service');
     })->name('home.service');
 Route::get('/','Front\FrontController@home')->name('home.index');
+
 Route::get('/about','Front\FrontController@about')->name('home.about');
+
 Route::get('/blog','Front\FrontController@blog')->name('home.blog');
 Route::get('/single-blog/{id}','Front\FrontController@blogShow')->name('home.single-blog');
 Route::get('/blog/search','Front\FrontController@search')->name('blog.search');
-
-Route::get('/contact','Front\FrontController@contact')->name('home.contact');
-Route::post('/contact/send-message','Front\FrontController@sendMessage')->name('contact.sendMessage');
-
 Route::post('blog/comment/{post}','Comment\CommentController@store')->name('comments.store');
 Route::post('blog/comment-replay/{comment}','Comment\CommentReplayController@store')->name('commentReplay.store');
 Route::post('blog/like','Front\FrontControlle@like')->name('blog.like');
+
+Route::get('/my-channel','Youtube\YoutubeController@getPlayListIndex')->name('home.mychannel');
+Route::get('/getVideos/{id}','Youtube\YoutubeController@getPlayListVideosIndex')->name('home.getVideos');
+Route::get('/contact','Front\FrontController@contact')->name('home.contact');
+Route::post('/contact/send-message','Front\FrontController@sendMessage')->name('contact.sendMessage');

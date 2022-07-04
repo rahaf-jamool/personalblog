@@ -39,11 +39,11 @@
                 @endphp
 
                 @foreach ($testimonials as $testimonial)
-                    <tr class="col-sm-12">
-                        <td class="col-sm-1">{{ ++$no }}</td>
-                        <td class="col-sm-2">{{ $testimonial->name }}</td>
-                        <td class="col-sm-2">{{ $testimonial->desc }}</td>
-                        <td class="col-sm-3">
+                    <tr class="">
+                        <td class="">{{ ++$no }}</td>
+                        <td class="">{{ $testimonial->name }}</td>
+                        <td class="">{{ $testimonial->desc }}</td>
+                        <td class="">
                             <a href="{{route('categories.edit', [$testimonial->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <form method="POST" action="{{route('categories.destroy', [$testimonial->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
                                 @csrf

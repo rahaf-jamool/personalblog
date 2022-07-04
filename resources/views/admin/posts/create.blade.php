@@ -141,6 +141,22 @@
                     @enderror
                 </div>
             </div>
+            {{-- tags --}}
+            <div class="form-group ml-4">
+                <label for="tag" class="col-sm-2 col-form-label">Tags</label>
+                <div class="col-sm-7">
+                    <select name='tags[]' class="form-control {{$errors->first('tag') ? "is-invalid" : "" }} select2" 
+                        multiple id="tag">
+                        <option disabled>Choose one or more!</option>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('tag')
+                    <small class="form-text text-danger"> {{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
             <div class="form-group ml-4">
                 <label for="date" class="col-sm-2 col-form-label">{{__('admin.date')}}</label>
                 <div class="col-sm-7">
@@ -150,22 +166,6 @@
                     </div>
                 </div>
             </div>
-            {{-- tags --}}
-            {{-- <div class="form-group ml-4">
-                <label for="tag" class="col-sm-2 col-form-label">Tag</label>
-                <div class="col-sm-7">
-                    <select name='tag' class="form-control {{$errors->first('tag') ? "is-invalid" : "" }}"
-                            id="category">
-                        <option disabled selected>Choose one!</option>
-                        @foreach ($tags as $tag)
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('tag')
-                    <small class="form-text text-danger"> {{ $message }}</small>
-                    @enderror
-                </div>
-            </div> --}}
             <div class="form-group ml-4">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">{{__('admin.create')}}</button>
@@ -181,28 +181,11 @@
         $("#wizard-picture").change(function () {
             readURL(this);
         });
-
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#wizardPicturePreview').attr('src', e.target.result).fadeIn('slow');
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        //image mobile
-        // Prepare the preview for profile picture
-        $("#wizard-picture1").change(function () {
-            readURL1(this);
-        });
-
-        //Function to show image before upload
-        function readURL1(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#wizardPicturePreview1').attr('src', e.target.result).fadeIn('slow');
                 }
                 reader.readAsDataURL(input.files[0]);
             }
@@ -213,7 +196,7 @@
         var multiImgPreview = function(input,imgPreviewPlaceholder){
             if (input.files){
                 var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++){
+                for (i = 0; i <= filesAmount; i++){
                     var reader = new FileReader();
                     reader.onload = function(event){
                         $($.parseHTML('<img>')).attr('src',event.target.result).appendTo(imgPreviewPlaceholder);

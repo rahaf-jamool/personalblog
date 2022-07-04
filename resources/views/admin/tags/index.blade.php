@@ -29,7 +29,6 @@
                     <tr>
                         <th>{{__('admin.no')}}</th>
                         <th>{{__('admin.name')}}</th>
-                        <th>{{{__('admin.post')}}}</th>
                         <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
@@ -39,11 +38,10 @@
                 @endphp
 
                 @foreach ($tags as $tag)
-                    <tr class="col-sm-12">
-                        <td class="col-sm-1">{{ ++$no }}</td>
-                        <td class="col-sm-2">{{ $tag->name }}</td>
-                        <td class="col-sm-2">{{ $tag->post->title }}</td>
-                        <td class="col-sm-3">
+                    <tr class="">
+                        <td class="">{{ ++$no }}</td>
+                        <td class="">{{ $tag->name }}</td>
+                        <td class="">
                             <a href="{{route('tags.edit', [$tag->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <form method="POST" action="{{route('tags.destroy', [$tag->id])}}" class="d-inline" onsubmit="return confirm('Delete this category permanently?')">
                                 @csrf

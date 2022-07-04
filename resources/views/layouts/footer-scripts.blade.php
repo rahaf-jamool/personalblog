@@ -32,4 +32,23 @@
 
 <script src="{{asset('vendor/aos/aos.js')}}"></script>
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+  {{-- Select2 JS --}}
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Choose Some Tags"
+        });
+    });
+    $(function(){
+      $('.selectpicker').selectpicker();
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+  
 @stack('scripts')

@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Http;
 
 class YoutubeController extends Controller
 {
+    public function getPlayListIndex(){
+        $playlists = Playlist::get();
+        return view('front.pages.channel',compact('playlists'));
+    }
+    public function getPlayListVideosIndex($id){
+        $PlaylistVideos = PlaylistVideos::findOrFail($id);
+        return view('front.pages.channelVideos',compact('PlaylistVideos'));
+    }
     public function getPlayList()
     {
         $key = env('YOUTUBE_KEY');

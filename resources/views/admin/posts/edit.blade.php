@@ -26,13 +26,17 @@
             <div class="form-group col-md-6">
                 <div class="picture-container">
                     <div class="picture">
-                        <img src="{{ asset('storage/'.$post->photo->src) }}" class="picture-src"
-                                id="wizardPicturePreview" height="200px" width="400px" title=""/>
+                        @if ($post->photo == '')
+                            <img src="" class="picture-src"
+                                id="wizardPicturePreview" height="200px" width="400px" title="" accept="image/*"/>
+                        @else
+                            <img src="{{ asset('storage/'.$post->photo->src) }}" class="picture-src"
+                                id="wizardPicturePreview" height="200px" width="400px" title="" accept="image/*"/>
+                        @endif
                         <input type="file" id="wizard-picture" name="photo"
                                    class="form-control {{$errors->first('photo') ? "is-invalid" : "" }} ">
-                            <div class="invalid-feedback">
-                                {{ $errors->first('photo') }}
-                            </div>
+                        <div class="invalid-feedback">
+                            {{ $errors->first('photo') }}
                         </div>
                         <h6>{{__('admin.Selectphotomain')}}</h6>
                     </div>
@@ -45,7 +49,7 @@
                 <div class="custom-file">
                     <input type="file" id="photos" name="photos[]" accept="image/*"
                             class="custom-file-input" multiple="multiple">
-                    <label class="custom-file-label" for="photos">{{__('admin.Selectphoto')}}</label>
+                    <label class="custom-file-label" for="">{{__('admin.Selectphoto')}}</label>
                     <div class="invalid-feedback">
                         {{ $errors->first('photos') }}
                     </div>
@@ -145,6 +149,28 @@
                     @enderror
                 </div>
             </div>
+            {{-- tags --}}
+            <div class="form-group ml-4">
+                <label for="tag" class="col-sm-2 col-form-label">Tag</label>
+                <div class="col-sm-7">
+                    <select name='tags[]' class="form-control {{$errors->first('tag') ? "is-invalid" : "" }} select2" 
+                        multiple id="tag">
+                        <option disabled>Choose one!</option>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}"
+                                @foreach ($post->tags as $tag_premit)
+                                    @if ($tag_premit->id == $tag->id)
+                                        selected
+                                    @endif
+                                @endforeach >{{ $tag->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('tag')
+                    <small class="form-text text-danger"> {{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
             <div class="form-group ml-4">
                 <label for="date" class="col-sm-2 col-form-label">{{__('admin.date')}}</label>
                 <div class="col-sm-7">
@@ -154,22 +180,6 @@
                     </div>
                 </div>
             </div>
-            {{-- tags --}}
-            {{-- <div class="form-group ml-4">
-                <label for="tag" class="col-sm-2 col-form-label">Tag</label>
-                <div class="col-sm-7">
-                    <select name='tag' class="form-control {{$errors->first('tag') ? "is-invalid" : "" }}"
-                            id="category">
-                        <option disabled selected>Choose one!</option>
-                        @foreach ($tags as $tag)
-                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('tag')
-                    <small class="form-text text-danger"> {{ $message }}</small>
-                    @enderror
-                </div>
-            </div> --}}
             <div class="form-group ml-3">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
@@ -220,7 +230,7 @@
         var multiImgPreview = function(input,imgPreviewPlaceholder){
             if (input.files){
                 var filesAmount = input.files.length;
-                for (i = 0; i < filesAmount; i++){
+                for (i = 0; i <= filesAmount; i++){
                     var reader = new FileReader();
                     reader.onload = function(event){
                         $($.parseHTML('<img>')).attr('src',event.target.result).appendTo(imgPreviewPlaceholder);

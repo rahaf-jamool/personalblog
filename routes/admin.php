@@ -34,6 +34,11 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             Route::resource ('posts','PostController');
             Route::get('posts/galleries/destroy/{id}','PostController@showGallery')->name('posts.gallery');
             Route::delete('posts/gallery/destroy/{photo}','PostController@deleteGallery')->name('posts.gallery.destroy');
+            Route::get('/trash', 'PostController@trash')->name('posts.trash');
+            Route::post('/{id}/restore', 'PostController@restore')->name('posts.restore');
+            // Route::delete('/trash/{id}', 'PostController@destroy')->name('posts.destroy');
+            Route::delete('/delete/{id}', 'PostController@deletePermanent')->name('posts.deletePermanent');
+            
         });
         // Manage Posts
         Route::group([ 'namespace' => 'Comment'], function () {

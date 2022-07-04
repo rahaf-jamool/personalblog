@@ -9,7 +9,11 @@
         </div>
         <div class="row">
           <div class="col-lg-4">
-            <img src="{{asset('storage/'.$about->photo->src)}}" class="img-fluid" alt="">
+            @if ($about->photo == '')
+              <img src="{{ asset('img/favicon.png') }}" class="img-fluid" />
+            @else
+              <img src="{{asset('storage/'.$about->photo->src)}}" class="img-fluid" alt="">
+            @endif
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <h3>{{$about->name}}</h3>

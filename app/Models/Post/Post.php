@@ -6,16 +6,17 @@ use App\Models\Category\Category;
 use App\Models\Comment\Comment;
 use App\Models\Like\Like;
 use App\Models\Tag\Tag;
-use App\Models\Taq\Taq;
 use App\Models\User;
 use App\Traits\HasPhoto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 class Post extends Model
 {
     use HasFactory,HasTranslations,HasPhoto;
+    use SoftDeletes;
     public $translatable = ['title', 'short_desc', 'long_desc'];
     protected $primaryKey = 'id';
     protected $table = 'posts';
@@ -31,7 +32,6 @@ class Post extends Model
         'slug',
         'image',
         'views',
-        'status',
         'date',
     ];
     public function comments(){
@@ -47,8 +47,13 @@ class Post extends Model
     }
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(Tag::class,'post_tags','post_id','tag_id');
     }
+    // public function permissions()
+    // {
+    //     return $this->belongsToMany(Permission::class, 'roles_permissions','role_id', 'permission_id','id','id');
+
+    // }
     public function likes(){
         return $this->hasMany(Like::class);
     }
