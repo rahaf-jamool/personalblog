@@ -56,10 +56,16 @@
                         <td class="">
                             <a href="{{route('posts.edit', [$post->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <a class="btn btn-primary btn btn-sm" href="{{route('posts.gallery', [$post->id])}}">{{__('admin.gallery')}}</a>
-                            <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('posts.destroy', $post->id)}}">
+                            {{-- <form method="POST" class="d-inline" onsubmit="return confirm('Move post to trash ?')" action="{{route('posts.destroy', $post->id)}}">
                                 @csrf
                                 <input type="hidden" value="DELETE" name="_method">
                                 <input type="submit" value="{{__('admin.trash')}}" class="btn btn-danger btn-sm">
+                            </form> --}}
+                            <form method="POST" action="{{route('posts.deletePermanent', $post->id)}}" class="d-inline" onsubmit="return confirm('Delete this post permanently?')">
+                                @csrf
+
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="submit" value="{{ __('admin.delete') }}" class="btn btn-danger btn-sm">
                             </form>
                         </td>
                     </tr>

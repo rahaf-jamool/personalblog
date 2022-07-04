@@ -38,9 +38,9 @@
                             <li>
                                 <a href="{{route('posts.index')}}"><i class="ti-book"></i>{{__('admin.blogs')}}</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{route('posts.trash')}}"><i class="ti-trash"></i>{{__('admin.trash')}}</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{route('tags.index')}}"><i class="ti-tag"></i>{{__('admin.tags')}}</a>
                             </li>

@@ -16,7 +16,6 @@ use Spatie\Translatable\HasTranslations;
 class Post extends Model
 {
     use HasFactory,HasTranslations,HasPhoto;
-    use SoftDeletes;
     public $translatable = ['title', 'short_desc', 'long_desc'];
     protected $primaryKey = 'id';
     protected $table = 'posts';

@@ -150,40 +150,44 @@ class PostController extends Controller
     {
         try{
             DB::beginTransaction();
-            $this->post->findOrFail($id)->delete;
-            DB::commit();
-            return $this->SuccessMessage ('posts.index', ' trashed');
-        }
-        catch (\Exception $ex) {
-            DB::rollback();
-            return $this->ErrorMessage('posts.index', $ex->getMessage());
-        }
-    }
-    public function trash(){
-        $post = $this->post->onlyTrashed()->get();
-        return view('admin.posts.trash', compact('post'));
-    }
-    public function restore($id) {
-        $post = $this->post->withTrashed()->findOrFail($id);
-        if ($post->trashed()) {
-            $post->restore();
-            return $this->SuccessMessage ('posts.trash', ' restored');
-        }else {
-            return $this->ErrorMessage ('posts.trash', 'Data is not in restore');
-        }
-    }
-    public function deletePermanent($id){
-        $post = $this->post->withTrashed()->findOrFail($id);
-        if (!$post->trashed()) {
-            return $this->ErrorMessage ('posts.trash', 'Data is not in trash');
-        }else {
+            $post = $this->post->findOrFail($id);
+            $post->delete;
             $post->tags()->detach();
             $post->photo()->delete();
             $post->photos()->delete();
             $post->forceDelete();
-        return redirect()->route('posts.trash')->with('success', 'Data deleted successfully');
+            DB::commit();
+            return $this->SuccessMessage ('posts.index', ' deleted');
+        }catch (\Exception $ex) {
+            DB::rollback();
+            return $this->ErrorMessage('posts.index', $ex->getMessage());
         }
     }
+    // public function trash(){
+    //     $post = $this->post->onlyTrashed()->get();
+    //     return view('admin.posts.trash', compact('post'));
+    // }
+    // public function restore($id) {
+    //     $post = $this->post->withTrashed()->findOrFail($id);
+    //     if ($post->trashed()) {
+    //         $post->restore();
+    //         return $this->SuccessMessage ('posts.trash', ' restored');
+    //     }else {
+    //         return $this->ErrorMessage ('posts.trash', 'Data is not in restore');
+    //     }
+    // }
+    // public function deletePermanent($id){
+    //     $post = $this->post->withTrashed()->findOrFail($id);
+    //     if (!$post->trashed()) {
+    //         return $this->ErrorMessage ('posts.trash', 'Data is not in trash');
+    //     }else {
+    //         $post->tags()->detach();
+    //         $post->photo()->delete();
+    //         $post->photos()->delete();
+    //         $post->forceDelete();
+    //     return redirect()->route('posts.trash')->with('success', 'Data deleted successfully');
+    //     }
+    // }
     public function showGallery($id)
     {
        $post = $this->post->with('photos')->findOrFail($id);

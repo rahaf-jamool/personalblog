@@ -15,7 +15,7 @@ class YoutubeController extends Controller
         return view('front.pages.channel',compact('playlists'));
     }
     public function getPlayListVideosIndex($id){
-        $PlaylistVideos = PlaylistVideos::findOrFail($id);
+        // $PlaylistVideos = PlaylistVideos::findOrFail($id);
         return view('front.pages.channelVideos',compact('PlaylistVideos'));
     }
     public function getPlayList()
