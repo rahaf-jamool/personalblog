@@ -1692,3 +1692,19 @@ select#category {
   color: white;
   padding: 6px 4px;
 }
+.unavaible_product{
+    background-color: #ecf0f1;
+    height: 50%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.unavaible_product img{
+   width: 18rem;
+}
+.unavaible_product h2{
+  font-size: 3em;
+  color: #34b7a7;
+  text-align: center;
+}

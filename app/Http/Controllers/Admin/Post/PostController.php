@@ -192,7 +192,6 @@ class PostController extends Controller
     {
        $post = $this->post->with('photos')->findOrFail($id);
         return view('admin.posts.gallery', compact('post'));
-        // return $post;
     }
     public function deleteGallery(Photo $photo)
     {   

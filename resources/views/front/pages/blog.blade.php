@@ -15,48 +15,38 @@
       <div class="container" data-aos="fade-up">
         <div class="row">
           <div class="col-lg-8 entries">
-            @foreach ($posts as $post)
-              <article class="entry">
-                <div class="entry-img">
-                  <img src="{{asset('storage/'.$post->photo->src)}}" alt="" class="img-fluid">
-                </div>
-                <h2 class="entry-title">
-                  <a href="blog-single.html">{{$post->title}}</a>
-                </h2>
-                <div class="entry-meta">
-                  <ul>
-                    <li class="d-flex align-items-center"> <i class="bi bi-person m-2"></i> {{$post->created_at->diffForHumans()}} </li>
-                    <li class="d-flex align-items-center"> <i class="bi bi-clock m-2"></i><time datetime="2020-01-01"> {{$post->date}} </time></li>
-                    <li class="d-flex align-items-center"> <i class="bi bi-chat-dots m-2"></i> {{$post->comments->count()}} </li>
-                  </ul>
-                </div>
-                <div class="entry-content">
-                  <p>
-                    {{$post->long_desc}}
-                  </p>
-                  <div class="read-more">
-                    {{-- @php
-                      $like_count = 0;
-                      $dislike_count = 0;
-
-                      $like_status = "btn-secondry";
-                      $dislike_status = "btn-secondry";
-                    @endphp
-                    @foreach ($post->likes as $like)
-                      @php
-                        if($like->like == 1)
-                          $like_count++;
-                        if($like->like == 0)
-                          $dislike_count++;
-                      @endphp
-                    @endforeach --}}
-                      {{-- <span class="like" data-postid="{{$post->id}}"><i class="bi bi-hand-thumbs-up"></i> {{$like_count}}</span> --}}
-                      {{-- <span class="dislike" data-postid="{{$post->id}}"><i class="bi bi-hand-thumbs-down-fill"> {{$dislike_count}}</i></span> --}}
-                      <a class="read" href="{{route('home.single-blog', [$post->id])}}">{{__('front.readMore')}}</a>
+            @if (count($posts) > 0)
+              @foreach ($posts as $post)
+                <article class="entry">
+                  <div class="entry-img">
+                    <img src="{{asset('storage/'.$post->photo->src)}}" alt="" class="img-fluid">
                   </div>
-                </div>
-            </article>              
-            @endforeach
+                  <h2 class="entry-title">
+                    <a href="blog-single.html">{{$post->title}}</a>
+                  </h2>
+                  <div class="entry-meta">
+                    <ul>
+                      <li class="d-flex align-items-center"> <i class="bi bi-person m-2"></i> {{$post->created_at->diffForHumans()}} </li>
+                      <li class="d-flex align-items-center"> <i class="bi bi-clock m-2"></i><time datetime="2020-01-01"> {{$post->date}} </time></li>
+                      <li class="d-flex align-items-center"> <i class="bi bi-chat-dots m-2"></i> {{$post->comments->count()}} </li>
+                    </ul>
+                  </div>
+                  <div class="entry-content">
+                    <p>
+                      {{$post->long_desc}}
+                    </p>
+                    <div class="read-more">
+                        <a class="read" href="{{route('home.single-blog', [$post->id])}}">{{__('front.readMore')}}</a>
+                    </div>
+                  </div>
+                </article>              
+              @endforeach
+            @else
+            <div class="unavaible_product">
+              <img src="{{asset('img/notavailable_prev_ui.png')}}">
+              <h2>Ops... Posts not available.</h2> 
+            </div>
+            @endif
           </div>
           <div class="col-lg-4">
             <div class="sidebar">
@@ -81,7 +71,7 @@
                 <div class="post-item clearfix">
                   <img src="{{asset('storage/' . $latestPost->photo->src)}}" alt="">
                   <h4><a>{{$latestPost->title}}</a></h4>
-                  <time>{{$post->created_at->diffForHumans()}}</time>
+                  <time>{{$latestPost->created_at->diffForHumans()}}</time>
                 </div>
                  @endforeach
               </div>

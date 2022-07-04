@@ -42,7 +42,6 @@
             </p>
           </div>
         </div>
-
       </div>
     </section>
     <!-- ======= Skills Section ======= -->
