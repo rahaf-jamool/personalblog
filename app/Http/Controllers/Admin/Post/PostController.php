@@ -80,7 +80,7 @@ class PostController extends Controller
             }
             // $notification=Post::find($post->id);
             // event(new PostEvent($notification));
-            return $this->SuccessMessage ('posts.index', ' added');
+            return $this->SuccessMessage ('posts.index', __('message.added'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('posts.create', $ex->getMessage ());
@@ -140,7 +140,7 @@ class PostController extends Controller
                     $post->storeImage($photo->storeAs('images/post/photos/'.$post->name , $fileName,'public'),'gallery');
                 }
             }
-            return $this->SuccessMessage ('posts.index', ' added');
+            return $this->SuccessMessage ('posts.index', __('message.updated'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('posts.edit', $ex->getMessage ());
@@ -157,7 +157,7 @@ class PostController extends Controller
             $post->photos()->delete();
             $post->forceDelete();
             DB::commit();
-            return $this->SuccessMessage ('posts.index', ' deleted');
+            return $this->SuccessMessage ('posts.index', __('message.deleted'));
         }catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage('posts.index', $ex->getMessage());
@@ -197,7 +197,7 @@ class PostController extends Controller
     {   
         try{
             $photo->delete();
-            return $this->SuccessMessage ('posts.index', ' Gallery deleted ');
+            return $this->SuccessMessage ('posts.index', ' Gallery ' . __('message.deleted'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('posts.gallery', $ex->getMessage ());

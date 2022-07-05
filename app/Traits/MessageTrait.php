@@ -9,12 +9,12 @@ trait MessageTrait
     public function SuccessMessage($route,$msg )
     {
         return redirect ()->route ($route)
-            ->with('success', 'Data ' . $msg . ' successfully');
+            ->with('success', __('message.Data') . ' ' . __('message.HasBeen') . ' ' . $msg . ' ' . __('message.successfully'));
     }
     public function ErrorMessage($route,$msg )
     {
         return redirect ()->route ($route)
-            ->with('error', 'Data ' . $msg . 'failed');
+            ->with('error', __('message.Data') . ' ' . $msg . ' ' . __('message.failed'));
     }
     public function returnData($value, $msg): JsonResponse
     {

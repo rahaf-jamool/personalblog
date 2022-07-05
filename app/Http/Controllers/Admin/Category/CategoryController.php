@@ -46,7 +46,7 @@ class CategoryController extends Controller
             ];
             $this->category->create($data);            
             DB::commit();
-            return $this->SuccessMessage ('categories.index', ' added');
+            return $this->SuccessMessage ('categories.index', __('message.added'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('categories.create', $ex->getMessage ());
@@ -83,7 +83,7 @@ class CategoryController extends Controller
             ];
             $category->update($data);
             DB::commit();
-            return $this->SuccessMessage ('categories.index', ' updated');
+            return $this->SuccessMessage ('categories.index', __('message.updated'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('categories.edit', $ex->getMessage ());
@@ -94,7 +94,7 @@ class CategoryController extends Controller
         try{
             $category = $this->category->findOrFail($id);
             $category->delete();
-            return $this->SuccessMessage ('categories.index', ' deleted');
+            return $this->SuccessMessage ('categories.index', __('message.deleted'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('categories.index', $ex->getMessage ());

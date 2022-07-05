@@ -40,7 +40,7 @@ class TestimonialController extends Controller
             ];
             $this->testimonial->create($data);            
             DB::commit();
-            return $this->SuccessMessage ('testimonials.index', ' added');
+            return $this->SuccessMessage ('testimonials.index', __('message.added'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('testimonials.create', $ex->getMessage ());
@@ -71,7 +71,7 @@ class TestimonialController extends Controller
             ];
             $testimonial->update($data);
             DB::commit();
-            return $this->SuccessMessage ('testimonials.index', ' updated');
+            return $this->SuccessMessage ('testimonials.index', __('message.updated'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('testimonials.edit', $ex->getMessage ());
@@ -82,7 +82,7 @@ class TestimonialController extends Controller
         try{
             $testimonial = $this->testimonial->findOrFail($id);
             $testimonial->delete();
-            return $this->SuccessMessage ('testimonials.index', ' deleted');
+            return $this->SuccessMessage ('testimonials.index', __('message.deleted'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('testimonials.index', $ex->getMessage ());

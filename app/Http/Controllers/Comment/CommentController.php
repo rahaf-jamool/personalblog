@@ -56,7 +56,7 @@ class CommentController extends Controller
         try{
             $comment = $this->comment->findOrFail($id);
             $comment->delete();
-            return $this->SuccessMessage ('comments.index', ' deleted');
+            return $this->SuccessMessage ('comments.index', __('message.deleted'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('comments.index', $ex->getMessage ());

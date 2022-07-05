@@ -44,7 +44,7 @@ public function store(Request $request)
             ];
             $this->tag->create($data);            
             DB::commit();
-            return $this->SuccessMessage ('tags.index', ' added');
+            return $this->SuccessMessage ('tags.index', __('message.added'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('tags.create', $ex->getMessage ());
@@ -74,7 +74,7 @@ public function store(Request $request)
             ];
             $tag->update($data);
             DB::commit();
-            return $this->SuccessMessage ('tags.index', ' updated');
+            return $this->SuccessMessage ('tags.index', __('message.updated'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('tags.edit', $ex->getMessage ());
@@ -85,7 +85,7 @@ public function store(Request $request)
         try{
             $tag = $this->tag->findOrFail($id);
             $tag->delete();
-            return $this->SuccessMessage ('tags.index', ' deleted');
+            return $this->SuccessMessage ('tags.index', __('message.deleted'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('tags.index', $ex->getMessage ());

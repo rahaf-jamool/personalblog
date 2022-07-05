@@ -56,7 +56,7 @@ class AboutController extends Controller
                 $about->updateImage($request->file('photo')->storeAs('images/about' , $fileName,'public'),'main');
             }
             DB::commit();
-            return $this->SuccessMessage ('admin.about', ' updated');
+            return $this->SuccessMessage ('admin.about', __('message.updated'));
         } catch (\Exception $ex) {
             DB::rollback();
             return $this->ErrorMessage ('admin.about', $ex->getMessage ());

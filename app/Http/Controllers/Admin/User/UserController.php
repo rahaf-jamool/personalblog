@@ -41,7 +41,7 @@ class UserController extends Controller
                 'password' =>Hash::make($request->password)
             ]);
             DB::commit();
-            return $this->SuccessMessage('admin.user',' added' );
+            return $this->SuccessMessage('admin.user', __('message.added'));
         }catch(\Exception $ex){
             DB::rollback();
             return $this->ErrorMessage('admin.user.create', $ex->getMessage());
@@ -68,7 +68,7 @@ class UserController extends Controller
                 'password' =>Hash::make($request->password)
             ]);
             DB::commit();
-            return $this->SuccessMessage('admin.user',' updated' );
+            return $this->SuccessMessage('admin.user', __('message.updated') );
         }catch(\Exception $ex){
             DB::rollback();
             return $this->ErrorMessage('admin.user.edit', $ex->getMessage());
@@ -78,7 +78,7 @@ class UserController extends Controller
         try{
             $user = $this->user->findOrFail($id);
             $user->password = Hash::make($request->password);
-            return $this->SuccessMessage('admin.user',' updated' );
+            return $this->SuccessMessage('admin.user',  __('message.updated'));
         }catch(\Exception $ex){
             DB::rollback();
             return $this->ErrorMessage('admin.user', $ex->getMessage());
@@ -88,7 +88,7 @@ class UserController extends Controller
         try{
             $user = $this->user->findOrFail($id);
             $user->delete();
-            return $this->SuccessMessage('admin.user',' deleted' );
+            return $this->SuccessMessage('admin.user', __('message.deleted'));
         }catch(\Exception $ex){
             DB::rollback();
             return $this->ErrorMessage('admin.user', $ex->getMessage());

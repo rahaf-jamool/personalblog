@@ -87,7 +87,7 @@ class FrontController extends Controller
             'email' => $request->input('email'),
             'message' => $request->input('message')
             ]);
-            return redirect()->route('home.contact')->with('success', 'Your message has been submitted successfuly!');
+            return redirect()->route('home.contact')->with('success', __('message.YourMessageSubmitted'));
         }catch(\Exception $ex){
             return redirect()->route('home.contact')->with('error', $ex->getMessage());
         }
