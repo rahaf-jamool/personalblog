@@ -38,6 +38,9 @@
   {{-- Select2 JS --}}
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
+  {{-- toogle --}}
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
   <script>
     $(document).ready(function() {
         $('.select2').select2({

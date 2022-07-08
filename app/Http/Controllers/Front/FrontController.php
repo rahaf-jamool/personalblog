@@ -43,17 +43,18 @@ class FrontController extends Controller
         }
     }
     public function home(){
-        $services = $this->service->orderBy('id','desc')->get();
         $about = $this->about->find(1);
-        return view('front.pages.home',compact('services','about'));
+        $post = $this->post->where('status', '1')->get();
+        return view('front.pages.home',compact('about','post'));
     }
     public function about(){
         $about = $this->about->find(1);
         $testimonials = $this->testimonial->orderBy('id','desc')->get();
         return view('front.pages.about',compact('about','testimonials'));
     }
-    public function service(){
-        return view('front.pages.service',compact('services'));
+    public function categories(){
+        $categories = $this->category->orderBy('id','desc')->get();
+        return view('front.pages.category',compact('categories'));
     }
     public function blog(){
         $posts = $this->post->orderBy('id','desc')->paginate(10); 
@@ -93,9 +94,6 @@ class FrontController extends Controller
         }
         
     }
-    
-    
-
 
 public function like(Request $request)
 {

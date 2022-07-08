@@ -74,6 +74,7 @@
                             </div>
                         </div>
                         <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"  href="{{route('admin.profile')}}"><i class="text-success ti-user"></i>Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal"><i class="text-danger ti-unlock"></i>Logout</a>
                     </div>
@@ -105,5 +106,3 @@
       </div>
     </div>
   </div>
-        <!--=================================
- header End-->

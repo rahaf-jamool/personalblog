@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->longText('long_desc');
             $table->string('slug')->unique();
             $table->integer('views')->default(0);
+            $table->boolean('status');
             $table->date('date');
             $table->timestamps();
             $table->softDeletes();

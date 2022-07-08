@@ -17,7 +17,6 @@
 </div>
 
 @endif
-
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <a class="btn btn-success" href="{{route('posts.create')}}">{{__('admin.Cblog')}}</a>
@@ -31,7 +30,7 @@
                         <th>{{__('admin.image')}}</th>
                         <th>{{__('admin.title')}}</th>
                         <th>{{__('admin.desc')}}</th>
-                        {{-- <th>category</th> --}}
+                        <th>status</th>
                         <th>{{__('admin.action')}}</th>
                     </tr>
                 </thead>
@@ -53,6 +52,11 @@
                         <td class="">{{ $post->title }}</td>
                         {{-- <td class="col-sm-2">{{ $post->category->name }}</td> --}}
                         <td class="">{{ $post->short_desc }}</td>
+                        <td class="text-center">
+                            <input type="checkbox" class="toggle-class" data-id="{{$post->id}}" 
+                                data-toggle="toggle" data-on="Active" data-off="Not Active" 
+                                data-onstyle="success" data-offstyle="danger" {{$post->status == true ? 'checked' : ''}}>
+                        </td>
                         <td class="">
                             <a href="{{route('posts.edit', [$post->id])}}" class="btn btn-info btn-sm">{{__('admin.edit')}}</a>
                             <a class="btn btn-primary btn btn-sm" href="{{route('posts.gallery', [$post->id])}}">{{__('admin.gallery')}}</a>
@@ -87,4 +91,28 @@
 
 <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 
+<script>
+    $(function() {
+      $('#toggle-two').bootstrapToggle({
+        on: 'Enabled',
+        off: 'Disabled'
+      });
+    });
+    $('.toggle-class').on('change',function(){
+      var status = $(this).prop('checked') == true ? 1 : 0;
+      var post_id = $(this).data('id');
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: '{{route("change.status")}}',
+        data: {
+          'status' : status , 
+          'post_id' : post_id,
+        },
+        success: function(data){
+            console.log(data);
+        }
+      });
+    });
+</script>
 @endpush

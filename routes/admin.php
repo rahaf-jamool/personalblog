@@ -38,7 +38,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             Route::post('/{id}/restore', 'PostController@restore')->name('posts.restore');
             // Route::delete('/trash/{id}', 'PostController@destroy')->name('posts.destroy');
             Route::delete('/delete/{id}', 'PostController@deletePermanent')->name('posts.deletePermanent');
-            
+            Route::get('/changStatus','PostController@changStatus')->name('change.status');
         });
         // Manage Posts
         Route::group([ 'namespace' => 'Comment'], function () {
@@ -69,4 +69,7 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             Route::delete('/destroy/{id}', 'UserController@destroy')->name('admin.user.destroy');
             Route::post('/{id}', 'UserController@changepassword')->name('admin.user.changepassword');
         });
+        Route::get('/profile', function(){
+            return view('admin.profile');
+        })->name('admin.profile');
     });

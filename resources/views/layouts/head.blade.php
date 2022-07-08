@@ -19,6 +19,9 @@
 <!--- Style aos -->
 <link href="{{ asset('vendor/aos/aos.css') }}" rel="stylesheet">
 
+{{-- toogle --}}
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
 <!--- Style css -->
 @if (App::getLocale() == 'ar')
     <link href="{{ URL::asset('admin/assets/css/rtl.css') }}" rel="stylesheet">

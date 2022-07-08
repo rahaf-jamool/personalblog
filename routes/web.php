@@ -17,26 +17,20 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes([ 
     'register' => false
 ]);
-// Route::get('/', function () {
-//     return view('front.pages.home');
-// })->name('home.index');
-//     Route::get('/about', function () {
-//         return view('front.pages.about');
-//     })->name('home.about');
-    Route::get('/services', function () {
-        return view('front.pages.service');
-    })->name('home.service');
+
 Route::get('/','Front\FrontController@home')->name('home.index');
 
 Route::get('/about','Front\FrontController@about')->name('home.about');
 
-Route::get('/blog','Front\FrontController@blog')->name('home.blog');
+Route::get('/blogs','Front\FrontController@blog')->name('home.blog');
 Route::get('/single-blog/{id}','Front\FrontController@blogShow')->name('home.single-blog');
 Route::get('/blog/search','Front\FrontController@search')->name('blog.search');
 Route::post('blog/comment/{post}','Comment\CommentController@store')->name('comments.store');
 Route::post('blog/comment-replay/{comment}','Comment\CommentReplayController@store')->name('commentReplay.store');
-Route::post('blog/like','Front\FrontControlle@like')->name('blog.like');
+Route::post('blog/like','Front\FrontController@like')->name('blog.like');
 
+Route::get('/categories', 'Front\FrontController@categories')->name('home.categories');
+    
 Route::get('/my-channel','Youtube\YoutubeController@getPlayListIndex')->name('home.mychannel');
 Route::get('/getVideos/{id}','Youtube\YoutubeController@getPlayListVideosIndex')->name('home.getVideos');
 Route::get('/contact','Front\FrontController@contact')->name('home.contact');

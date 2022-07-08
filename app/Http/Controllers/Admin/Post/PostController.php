@@ -203,4 +203,11 @@ class PostController extends Controller
             return $this->ErrorMessage ('posts.gallery', $ex->getMessage ());
         }
     }
+    public function changStatus(Request $request)
+    {
+        $post = $this->post->find($request->post_id);
+        $post->status = $request->status;
+        $post->save();
+        return response()->json(['success','Status Change Successfuly']);  
+    }
 }
