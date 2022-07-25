@@ -45,7 +45,10 @@ class FrontController extends Controller
     public function home(){
         $about = $this->about->find(1);
         $post = $this->post->where('status', '1')->get();
-        return view('front.pages.home',compact('about','post'));
+        $categories = $this->category->orderBy('id','desc')->get();
+        $tags = $this->tag->orderBy('id','desc')->get();
+        $posts = $this->post->orderBy('id','desc')->paginate(10); 
+        return view('front.pages.home',compact('about','post','categories','tags','posts'));
     }
     public function about(){
         $about = $this->about->find(1);

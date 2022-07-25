@@ -40,5 +40,9 @@ return [
     'address' => 'Address',
     'job' => 'Job',
     'gmail' => 'G-mail',
-    'addComment' => 'Add Comment'
+    'addComment' => 'Add Comment',
+    'mychannel' => 'My Channel',
+    'playlists' => 'Playlists',
+    'viewAll' => 'View All',
+    'publishedAt' => 'Published at'
 ];

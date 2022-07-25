@@ -55,6 +55,11 @@
                             <span class="right-nav-text">{{__('admin.testimonial')}}</span>
                         </a>
                     </li>
+                    {{-- <li>
+                        <a href="{{route('getVideos')}}"><i class="ti-comments-smiley"></i>
+                            <span class="right-nav-text">My Channel</span>
+                        </a>
+                    </li> --}}
                     <li>
                         <a href="{{route('admin.about')}}"><i class="ti-info"></i>
                             <span class="right-nav-text">{{__('admin.about')}}</span>

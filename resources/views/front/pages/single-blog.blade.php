@@ -2,24 +2,24 @@
 
 @section('content')
     <section id="blog" class="blog mt-5">
-      <div class="container" data-aos="fade-up">
+      <div class="container">
         <div class="row">
           <div class="entries">
             <article class="entry entry-single">
               <div class="entry-img">
-                <img src="{{asset('storage/'.$post->photo->src)}}" alt="" class="img-fluid">
+                <img src="{{asset('storage/'.$post->photo->src)}}" data-aos="fade-up" data-aos-delay="200" alt="" class="img-fluid">
               </div>
-              <h2 class="entry-title">
+              <h2 class="entry-title" data-aos="fade-up" data-aos-delay="200">
                 <a href="blog-single.html">{{$post->title}}</a>
               </h2>
-              <div class="entry-meta">
+              <div class="entry-meta" data-aos="fade-up" data-aos-delay="200">
                 <ul>
                   <li class="d-flex align-items-center"><i class="bi bi-clock  m-2"></i> <a><time datetime="2020-01-01"> {{$post->date}}</time></a></li>
                   <li class="d-flex align-items-center"><i class="bi bi-chat-dots  m-2"></i> <a> {{$post->comments->count()}} {{__('admin.comments')}}</a></li>
                   <li class="d-flex align-items-center"><i class="m-2"></i> <a> {{$post->category->name}}</a></li>
                 </ul>
               </div>
-              <div class="entry-content">
+              <div class="entry-content" data-aos="fade-up" data-aos-delay="200">
                 <blockquote>
                   <p>
                     {{$post->short_desc}}
@@ -29,7 +29,7 @@
                   {{$post->long_desc}}
                 </p>
               </div>
-              <div class="entry-footer">
+              <div class="entry-footer" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-tags"></i>
                 <ul class="tags">
                   @foreach ($post->tags as $tag)
@@ -38,10 +38,10 @@
                 </ul>
               </div>
             </article>
-            <div class="blog-comments">
+            <div class="blog-comments" data-aos="fade-up" data-aos-delay="200">
               <h4 class="comments-count">{{$post->comments->count()}} Comments</h4>
               @foreach ($post->comments as $comment)
-              <div class="dialogbox">
+              <div class="dialogbox" data-aos="flip-up" data-aos-delay="200">
                 <div class="body">
                   <span class="tip tip-left"></span>
                   <div class="message">

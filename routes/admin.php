@@ -59,7 +59,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
             Route::get('/', 'AboutController@about')->name('admin.about');
             Route::put('/update', 'AboutController@aboutUpdate')->name('about.update');
         });
-    // Manage users
+        // my channel
+        Route::get('/my-channel','Youtube\YoutubeController@getPlayListVideoAdmin')->name('getVideos');
+        Route::get('/changFeature','Youtube\YoutubeControlle@changFeature')->name('change.feature');
+        // Manage users
         Route::group(['prefix' => 'users', 'namespace' => 'Admin\User'], function () {
             Route::get('/', 'UserController@index')->name('admin.user');
             Route::get('/create', 'UserController@create')->name('admin.user.create');

@@ -31,7 +31,9 @@ Route::post('blog/like','Front\FrontController@like')->name('blog.like');
 
 Route::get('/categories', 'Front\FrontController@categories')->name('home.categories');
     
-Route::get('/my-channel','Youtube\YoutubeController@getPlayListIndex')->name('home.mychannel');
-Route::get('/getVideos/{id}','Youtube\YoutubeController@getPlayListVideosIndex')->name('home.getVideos');
+Route::get('/my-channel', 'Youtube\YoutubeController@getPlayListFront')->name('home.mychannel');
+Route::get('/my-videos/{id}', 'Youtube\YoutubeController@getPlayListVideosFront')->name('home.getVideos');
+Route::get('/watch-video/{id}', 'Youtube\YoutubeController@watchVideoFront')->name('home.watchVideo');
+
 Route::get('/contact','Front\FrontController@contact')->name('home.contact');
 Route::post('/contact/send-message','Front\FrontController@sendMessage')->name('contact.sendMessage');

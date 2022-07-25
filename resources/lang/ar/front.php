@@ -40,5 +40,9 @@ return [
     'address' => 'العنوان',
     'job' => 'العمل',
     'gmail' => 'الايميل',
-    'addComment' => 'اضافة تعليق'
+    'addComment' => 'اضافة تعليق',
+    'mychannel' => 'قناتي',
+    'playlists' => 'قوائم التشغيل',
+    'viewAll' => 'عرض الكل',
+    'publishedAt' => 'نشرت في'
 ];

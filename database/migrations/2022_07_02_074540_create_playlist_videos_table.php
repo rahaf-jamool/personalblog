@@ -22,6 +22,7 @@ class CreatePlaylistVideosTable extends Migration
             $table->text('desc');
             $table->longText('thumbnails');
             $table->string('videoId');
+            $table->boolean('feature');
             $table->string('publishedAt');
             $table->timestamps();
         });

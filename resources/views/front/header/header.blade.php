@@ -4,12 +4,12 @@
     <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
     <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-            <li><a class="active" href="{{route('home.index')}}">{{__('front.home')}}</a></li>
-            <li><a href="{{route('home.about')}}">{{__('front.about')}}</a></li>
-            <li><a href="{{route('home.blog')}}">{{__('front.blogs')}}</a></li>
-            <li><a href="{{route('home.categories')}}">{{__('front.categories')}}</a></li>
-            <li><a href="{{route('home.mychannel')}}">My Channnel</a></li>
-            <li><a href="{{route('home.contact')}}">{{__('front.contact')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.index')) ? 'active' : '' }}" href="{{route('home.index')}}">{{__('front.home')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.about')) ? 'active' : '' }}" href="{{route('home.about')}}">{{__('front.about')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.blog')) ? 'active' : '' }}" href="{{route('home.blog')}}">{{__('front.blogs')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.categories')) ? 'active' : '' }}" href="{{route('home.categories')}}">{{__('front.categories')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.mychannel')) ? 'active' : '' }}" href="{{route('home.mychannel')}}">{{__('front.mychannel')}}</a></li>
+            <li><a class="{{ (request()->routeIs('home.contact')) ? 'active' : '' }}" href="{{route('home.contact')}}">{{__('front.contact')}}</a></li>
             {{-- dropdown language --}}
             <li class="dropdown m-4">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button">{{__('front.languages')}}</a>
