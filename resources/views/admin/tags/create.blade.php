@@ -20,7 +20,7 @@
         <div class="form-group m-4">
             <h2>{{__('admin.Ctag')}}</h2>
         </div>
-        <div class="container">
+        <div class="">
         <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
@@ -33,7 +33,7 @@
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div id="english" class="container tab-pane active show in"><br>
+                <div id="english" class="tab-pane active show in"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="en_name">{{__('admin.name')}}</label>
                         <input class="form-control {{ $errors->has('en_name') ? 'is-invalid' : '' }}" type="text"
@@ -45,7 +45,7 @@
                         @endif
                     </div>
                 </div>
-                <div id="arabic" class="container tab-pane fade"><br>
+                <div id="arabic" class="tab-pane fade"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="title">{{__('admin.name')}}</label>
                         <input class="form-control {{ $errors->has('ar_name') ? 'is-invalid' : '' }}" type="text"
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group ml-4">
+            <div class="form-group">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">{{__('admin.create')}}</button>
                 </div>

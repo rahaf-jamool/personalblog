@@ -1,8 +1,8 @@
 @extends('welcome')
 
 @section('content')
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
+    <section id="about" class="about mt-4">
+      <div class="container">
         <div class="section-title">
           <h2>{{__('front.about')}}</h2>
           <p>{{__('front.aboutDesc')}}</p>
@@ -44,13 +44,13 @@
         </div>
       </div>
     </section>
-    <section id="testimonials" class="testimonials">
-      <div class="container" data-aos="fade-up">
+    <section id="testimonials" class="testimonials mt-4">
+      <div class="container">
         <div class="section-title">
           <h2>{{__('front.testimonials')}}</h2>
           <p>{{__('front.testimonialDesc')}}</p>
         </div>
-        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonials-slider swiper">
           <div class="swiper-wrapper">
             @foreach ($testimonials as $testimonial)
               <div class="swiper-slide">

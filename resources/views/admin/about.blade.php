@@ -24,7 +24,7 @@
     <div class="form-group m-4">
         <h2>{{__('admin.Uabout')}}</h2>
     </div>
-    <div class="container">
+    <div class="">
         <div class="form-group col-md-6">
             <div class="picture-container">
                 <div class="picture">
@@ -56,8 +56,8 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
-            <div id="english" class="container tab-pane active"><br>
+        <div class="tab-content ml-3 mt-4">
+            <div id="english" class="tab-pane active"><br>
                 <div class="form-group col-sm-7">
                     <label class="required" for="en_name">{{__('admin.name')}}</label>
                     <input class="form-control {{ $errors->has('en_name') ? 'is-invalid' : '' }}" type="text"
@@ -89,7 +89,7 @@
                     @endif
                 </div>
             </div>
-            <div id="arabic" class="container tab-pane fade"><br>
+            <div id="arabic" class="tab-pane fade"><br>
                 <div class="form-group col-sm-7">
                     <label class="required" for="ar_name">{{__('admin.name')}}</label>
                     <input class="form-control {{ $errors->has('ar_name') ? 'is-invalid' : '' }}" type="text"

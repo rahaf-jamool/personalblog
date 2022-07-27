@@ -76,8 +76,8 @@ h3{
 button.btn{
     border: none;
     border-radius: 2rem;
-    padding: 1rem 3rem;
-    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    font-size: 1rem 2rem;
     font-family: var(--Livvic);
     cursor: pointer;
 }

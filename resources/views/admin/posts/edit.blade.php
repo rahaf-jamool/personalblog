@@ -22,7 +22,7 @@
             <h2>{{__('admin.Ublog')}}</h2>
         </div>
 
-        <div class="container">
+        <div class="">
             <div class="form-group col-md-6">
                 <div class="picture-container">
                     <div class="picture">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs ml-3 mt-4">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab" href="#english">{{__('admin.english')}}</a>
                 </li>
@@ -66,8 +66,8 @@
             </ul>
 
             <!-- Tab panes -->
-            <div class="tab-content">
-                <div id="english" class="container tab-pane active show in"><br>
+            <div class="tab-content ml-2">
+                <div id="english" class="tab-pane active show in"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="en_name">{{__('admin.title')}}</label>
                         <input class="form-control {{ $errors->has('en_title') ? 'is-invalid' : '' }}" type="text"
@@ -99,7 +99,7 @@
                         @endif
                     </div>
                 </div>
-                <div id="arabic" class="container tab-pane fade"><br>
+                <div id="arabic" class="tab-pane fade"><br>
                     <div class="form-group col-sm-7">
                         <label class="required" for="title">{{__('admin.title')}}</label>
                         <input class="form-control {{ $errors->has('ar_title') ? 'is-invalid' : '' }}" type="text"
@@ -133,7 +133,7 @@
                 </div>
             </div>
             {{-- category --}}
-            <div class="form-group ml-4">
+            <div class="form-group">
                 <label for="category" class="col-sm-2 col-form-label">{{__('admin.category')}}</label>
                 <div class="col-sm-7">
                     <select name='category' class="form-control {{$errors->first('category') ? "is-invalid" : "" }} "
@@ -150,7 +150,7 @@
                 </div>
             </div>
             {{-- tags --}}
-            <div class="form-group ml-4">
+            <div class="form-group">
                 <label for="tag" class="col-sm-2 col-form-label">Tag</label>
                 <div class="col-sm-7">
                     <select name='tags[]' class="form-control {{$errors->first('tag') ? "is-invalid" : "" }} select2" 
@@ -171,7 +171,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group ml-4">
+            <div class="form-group">
                 <label for="date" class="col-sm-2 col-form-label">{{__('admin.date')}}</label>
                 <div class="col-sm-7">
                     <input type="date" name='date' class="form-control {{$errors->first('date') ? "is-invalid" : "" }} " value="{{ $post->date }}" id="date" >
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group ml-3">
+            <div class="form-group mt-3">
                 <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
                 </div>

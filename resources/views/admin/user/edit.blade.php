@@ -21,7 +21,7 @@
             <h2>{{__('admin.Uuser')}}</h2>
         </div>
 
-        <div class="container">
+        <div class="">
             <div class="form-group ml-5">
                 <label for="name" class="col-sm-2 col-form-label">{{__('admin.name')}}</label>
                 <div class="col-sm-9">
